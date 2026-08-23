@@ -4,11 +4,21 @@
  * Models scientific programs and specific agricultural trials/experiments conducted at TARC.
  */
 
-import { mysqlTable, varchar, text, json, mysqlEnum, timestamp, int, decimal, index } from 'drizzle-orm/mysql-core';
 import { relations } from 'drizzle-orm';
+import {
+  decimal,
+  index,
+  int,
+  json,
+  mysqlEnum,
+  mysqlTable,
+  text,
+  timestamp,
+  varchar,
+} from 'drizzle-orm/mysql-core';
 import { departments } from './departments';
-import { staff } from './staff';
 import { publications } from './publications';
+import { staff } from './staff';
 
 /**
  * Research Programs Table
@@ -26,8 +36,10 @@ export const researchPrograms = mysqlTable(
       .references(() => departments.id, { onDelete: 'restrict', onUpdate: 'cascade' }),
 
     /** Optional foreign key to lead researcher/program leader */
-    leadStaffId: varchar('lead_staff_id', { length: 36 })
-      .references(() => staff.id, { onDelete: 'set null', onUpdate: 'cascade' }),
+    leadStaffId: varchar('lead_staff_id', { length: 36 }).references(() => staff.id, {
+      onDelete: 'set null',
+      onUpdate: 'cascade',
+    }),
 
     /** Full program title */
     title: varchar('title', { length: 255 }).notNull(),
@@ -106,8 +118,10 @@ export const researchProjects = mysqlTable(
       .references(() => departments.id, { onDelete: 'restrict', onUpdate: 'cascade' }),
 
     /** Optional foreign key to primary investigator / lead researcher */
-    leadResearcherId: varchar('lead_researcher_id', { length: 36 })
-      .references(() => staff.id, { onDelete: 'set null', onUpdate: 'cascade' }),
+    leadResearcherId: varchar('lead_researcher_id', { length: 36 }).references(() => staff.id, {
+      onDelete: 'set null',
+      onUpdate: 'cascade',
+    }),
 
     /** Full scientific project title */
     title: varchar('title', { length: 255 }).notNull(),

@@ -4,12 +4,21 @@
  * Stores researcher and administrative profiles, areas of expertise, bios, and department affiliations.
  */
 
-import { mysqlTable, varchar, text, json, boolean, int, timestamp, index } from 'drizzle-orm/mysql-core';
 import { relations } from 'drizzle-orm';
+import {
+  boolean,
+  index,
+  int,
+  json,
+  mysqlTable,
+  text,
+  timestamp,
+  varchar,
+} from 'drizzle-orm/mysql-core';
 import { departments } from './departments';
-import { users } from './users';
-import { researchPrograms, researchProjects } from './research';
 import { publicationAuthors } from './publications';
+import { researchPrograms, researchProjects } from './research';
+import { users } from './users';
 
 /**
  * Staff Table

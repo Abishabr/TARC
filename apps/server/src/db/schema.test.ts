@@ -3,22 +3,22 @@
  * @description Unit tests verifying Drizzle ORM schema table exports, column definitions, and integrity.
  */
 
-import { describe, it, expect } from 'vitest';
+import { describe, expect, it } from 'vitest';
 import {
-  users,
+  events,
+  contactMessages,
   departments,
-  staff,
+  galleryMedia,
+  news,
+  publicationAuthors,
+  publications,
   researchPrograms,
   researchProjects,
-  publications,
-  publicationAuthors,
-  news,
-  events,
-  galleryMedia,
-  vehicles,
-  vehicleAssignments,
-  contactMessages,
+  staff,
   systemSettings,
+  users,
+  vehicleAssignments,
+  vehicles,
 } from './schema/index.js';
 
 describe('Drizzle Database Schema Definitions', () => {
@@ -95,4 +95,3 @@ describe('Drizzle Database Schema Definitions', () => {
     expect(systemSettings.institutionName).toBeDefined();
   });
 });
-

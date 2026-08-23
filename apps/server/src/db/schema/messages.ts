@@ -4,8 +4,8 @@
  * Stores visitor contact form submissions, inquiries, and staff moderation/reply records.
  */
 
-import { mysqlTable, varchar, text, mysqlEnum, timestamp, index } from 'drizzle-orm/mysql-core';
 import { relations } from 'drizzle-orm';
+import { index, mysqlEnum, mysqlTable, text, timestamp, varchar } from 'drizzle-orm/mysql-core';
 import { users } from './users';
 
 /**
@@ -34,19 +34,15 @@ export const contactMessages = mysqlTable(
     message: text('message').notNull(),
 
     /** Moderation workflow status */
-    status: mysqlEnum('status', [
-      'UNREAD',
-      'READ',
-      'IN_PROGRESS',
-      'REPLIED',
-      'ARCHIVED',
-    ])
+    status: mysqlEnum('status', ['UNREAD', 'READ', 'IN_PROGRESS', 'REPLIED', 'ARCHIVED'])
       .notNull()
       .default('UNREAD'),
 
     /** User account to whom the inquiry is assigned for follow-up */
-    assignedTo: varchar('assigned_to', { length: 36 })
-      .references(() => users.id, { onDelete: 'set null', onUpdate: 'cascade' }),
+    assignedTo: varchar('assigned_to', { length: 36 }).references(() => users.id, {
+      onDelete: 'set null',
+      onUpdate: 'cascade',
+    }),
 
     /** Internal administrative resolution or reply notes */
     replyNotes: text('reply_notes'),

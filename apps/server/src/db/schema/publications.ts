@@ -4,8 +4,18 @@
  * Models scientific outputs, journal papers, technical bulletins, and multi-author mappings.
  */
 
-import { mysqlTable, varchar, text, mysqlEnum, int, boolean, bigint, timestamp, index } from 'drizzle-orm/mysql-core';
 import { relations } from 'drizzle-orm';
+import {
+  bigint,
+  boolean,
+  index,
+  int,
+  mysqlEnum,
+  mysqlTable,
+  text,
+  timestamp,
+  varchar,
+} from 'drizzle-orm/mysql-core';
 import { researchProjects } from './research';
 import { staff } from './staff';
 
@@ -20,8 +30,10 @@ export const publications = mysqlTable(
     id: varchar('id', { length: 36 }).primaryKey(),
 
     /** Optional foreign key to associated research project trial */
-    projectId: varchar('project_id', { length: 36 })
-      .references(() => researchProjects.id, { onDelete: 'set null', onUpdate: 'cascade' }),
+    projectId: varchar('project_id', { length: 36 }).references(() => researchProjects.id, {
+      onDelete: 'set null',
+      onUpdate: 'cascade',
+    }),
 
     /** Title of the paper, manual, or release */
     title: varchar('title', { length: 300 }).notNull(),
@@ -94,8 +106,10 @@ export const publicationAuthors = mysqlTable(
       .references(() => publications.id, { onDelete: 'cascade', onUpdate: 'cascade' }),
 
     /** Foreign key to internal TARC staff researcher (null if external co-author) */
-    staffId: varchar('staff_id', { length: 36 })
-      .references(() => staff.id, { onDelete: 'set null', onUpdate: 'cascade' }),
+    staffId: varchar('staff_id', { length: 36 }).references(() => staff.id, {
+      onDelete: 'set null',
+      onUpdate: 'cascade',
+    }),
 
     /** External co-author full name if not in internal TARC staff directory */
     externalAuthorName: varchar('external_author_name', { length: 150 }),

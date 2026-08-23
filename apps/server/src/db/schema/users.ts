@@ -4,12 +4,12 @@
  * Stores system authentication accounts, hashed passwords, and assigned 4-tier RBAC roles.
  */
 
-import { mysqlTable, varchar, boolean, timestamp, mysqlEnum, index } from 'drizzle-orm/mysql-core';
 import { relations } from 'drizzle-orm';
-import { staff } from './staff';
+import { boolean, index, mysqlEnum, mysqlTable, timestamp, varchar } from 'drizzle-orm/mysql-core';
 import { news } from './communication';
-import { vehicleAssignments } from './vehicles';
 import { contactMessages } from './messages';
+import { staff } from './staff';
+import { vehicleAssignments } from './vehicles';
 
 /**
  * Users Table

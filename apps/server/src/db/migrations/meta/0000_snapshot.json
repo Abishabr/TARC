@@ -86,16 +86,12 @@
       "indexes": {
         "idx_users_email": {
           "name": "idx_users_email",
-          "columns": [
-            "email"
-          ],
+          "columns": ["email"],
           "isUnique": false
         },
         "idx_users_role": {
           "name": "idx_users_role",
-          "columns": [
-            "role"
-          ],
+          "columns": ["role"],
           "isUnique": false
         }
       },
@@ -103,17 +99,13 @@
       "compositePrimaryKeys": {
         "users_id": {
           "name": "users_id",
-          "columns": [
-            "id"
-          ]
+          "columns": ["id"]
         }
       },
       "uniqueConstraints": {
         "users_email_unique": {
           "name": "users_email_unique",
-          "columns": [
-            "email"
-          ]
+          "columns": ["email"]
         }
       },
       "checkConstraint": {}
@@ -192,9 +184,7 @@
       "indexes": {
         "idx_departments_code": {
           "name": "idx_departments_code",
-          "columns": [
-            "code"
-          ],
+          "columns": ["code"],
           "isUnique": false
         }
       },
@@ -202,17 +192,13 @@
       "compositePrimaryKeys": {
         "departments_id": {
           "name": "departments_id",
-          "columns": [
-            "id"
-          ]
+          "columns": ["id"]
         }
       },
       "uniqueConstraints": {
         "departments_code_unique": {
           "name": "departments_code_unique",
-          "columns": [
-            "code"
-          ]
+          "columns": ["code"]
         }
       },
       "checkConstraint": {}
@@ -342,17 +328,12 @@
       "indexes": {
         "idx_staff_department": {
           "name": "idx_staff_department",
-          "columns": [
-            "department_id"
-          ],
+          "columns": ["department_id"],
           "isUnique": false
         },
         "idx_staff_name": {
           "name": "idx_staff_name",
-          "columns": [
-            "last_name",
-            "first_name"
-          ],
+          "columns": ["last_name", "first_name"],
           "isUnique": false
         }
       },
@@ -361,12 +342,8 @@
           "name": "staff_department_id_departments_id_fk",
           "tableFrom": "staff",
           "tableTo": "departments",
-          "columnsFrom": [
-            "department_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["department_id"],
+          "columnsTo": ["id"],
           "onDelete": "restrict",
           "onUpdate": "cascade"
         }
@@ -374,17 +351,13 @@
       "compositePrimaryKeys": {
         "staff_id": {
           "name": "staff_id",
-          "columns": [
-            "id"
-          ]
+          "columns": ["id"]
         }
       },
       "uniqueConstraints": {
         "staff_user_id_unique": {
           "name": "staff_user_id_unique",
-          "columns": [
-            "user_id"
-          ]
+          "columns": ["user_id"]
         }
       },
       "checkConstraint": {}
@@ -485,23 +458,17 @@
       "indexes": {
         "idx_programs_slug": {
           "name": "idx_programs_slug",
-          "columns": [
-            "slug"
-          ],
+          "columns": ["slug"],
           "isUnique": false
         },
         "idx_programs_department": {
           "name": "idx_programs_department",
-          "columns": [
-            "department_id"
-          ],
+          "columns": ["department_id"],
           "isUnique": false
         },
         "idx_programs_status": {
           "name": "idx_programs_status",
-          "columns": [
-            "status"
-          ],
+          "columns": ["status"],
           "isUnique": false
         }
       },
@@ -510,12 +477,8 @@
           "name": "research_programs_department_id_departments_id_fk",
           "tableFrom": "research_programs",
           "tableTo": "departments",
-          "columnsFrom": [
-            "department_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["department_id"],
+          "columnsTo": ["id"],
           "onDelete": "restrict",
           "onUpdate": "cascade"
         },
@@ -523,12 +486,8 @@
           "name": "research_programs_lead_staff_id_staff_id_fk",
           "tableFrom": "research_programs",
           "tableTo": "staff",
-          "columnsFrom": [
-            "lead_staff_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["lead_staff_id"],
+          "columnsTo": ["id"],
           "onDelete": "set null",
           "onUpdate": "cascade"
         }
@@ -536,23 +495,17 @@
       "compositePrimaryKeys": {
         "research_programs_id": {
           "name": "research_programs_id",
-          "columns": [
-            "id"
-          ]
+          "columns": ["id"]
         }
       },
       "uniqueConstraints": {
         "research_programs_slug_unique": {
           "name": "research_programs_slug_unique",
-          "columns": [
-            "slug"
-          ]
+          "columns": ["slug"]
         },
         "research_programs_code_unique": {
           "name": "research_programs_code_unique",
-          "columns": [
-            "code"
-          ]
+          "columns": ["code"]
         }
       },
       "checkConstraint": {}
@@ -680,23 +633,17 @@
       "indexes": {
         "idx_projects_slug": {
           "name": "idx_projects_slug",
-          "columns": [
-            "slug"
-          ],
+          "columns": ["slug"],
           "isUnique": false
         },
         "idx_projects_program": {
           "name": "idx_projects_program",
-          "columns": [
-            "program_id"
-          ],
+          "columns": ["program_id"],
           "isUnique": false
         },
         "idx_projects_status": {
           "name": "idx_projects_status",
-          "columns": [
-            "status"
-          ],
+          "columns": ["status"],
           "isUnique": false
         }
       },
@@ -705,12 +652,8 @@
           "name": "research_projects_program_id_research_programs_id_fk",
           "tableFrom": "research_projects",
           "tableTo": "research_programs",
-          "columnsFrom": [
-            "program_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["program_id"],
+          "columnsTo": ["id"],
           "onDelete": "restrict",
           "onUpdate": "cascade"
         },
@@ -718,12 +661,8 @@
           "name": "research_projects_department_id_departments_id_fk",
           "tableFrom": "research_projects",
           "tableTo": "departments",
-          "columnsFrom": [
-            "department_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["department_id"],
+          "columnsTo": ["id"],
           "onDelete": "restrict",
           "onUpdate": "cascade"
         },
@@ -731,12 +670,8 @@
           "name": "research_projects_lead_researcher_id_staff_id_fk",
           "tableFrom": "research_projects",
           "tableTo": "staff",
-          "columnsFrom": [
-            "lead_researcher_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["lead_researcher_id"],
+          "columnsTo": ["id"],
           "onDelete": "set null",
           "onUpdate": "cascade"
         }
@@ -744,23 +679,17 @@
       "compositePrimaryKeys": {
         "research_projects_id": {
           "name": "research_projects_id",
-          "columns": [
-            "id"
-          ]
+          "columns": ["id"]
         }
       },
       "uniqueConstraints": {
         "research_projects_slug_unique": {
           "name": "research_projects_slug_unique",
-          "columns": [
-            "slug"
-          ]
+          "columns": ["slug"]
         },
         "research_projects_code_unique": {
           "name": "research_projects_code_unique",
-          "columns": [
-            "code"
-          ]
+          "columns": ["code"]
         }
       },
       "checkConstraint": {}
@@ -823,16 +752,12 @@
       "indexes": {
         "idx_pub_author_pub": {
           "name": "idx_pub_author_pub",
-          "columns": [
-            "publication_id"
-          ],
+          "columns": ["publication_id"],
           "isUnique": false
         },
         "idx_pub_author_staff": {
           "name": "idx_pub_author_staff",
-          "columns": [
-            "staff_id"
-          ],
+          "columns": ["staff_id"],
           "isUnique": false
         }
       },
@@ -841,12 +766,8 @@
           "name": "publication_authors_publication_id_publications_id_fk",
           "tableFrom": "publication_authors",
           "tableTo": "publications",
-          "columnsFrom": [
-            "publication_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["publication_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "cascade"
         },
@@ -854,12 +775,8 @@
           "name": "publication_authors_staff_id_staff_id_fk",
           "tableFrom": "publication_authors",
           "tableTo": "staff",
-          "columnsFrom": [
-            "staff_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["staff_id"],
+          "columnsTo": ["id"],
           "onDelete": "set null",
           "onUpdate": "cascade"
         }
@@ -867,9 +784,7 @@
       "compositePrimaryKeys": {
         "publication_authors_id": {
           "name": "publication_authors_id",
-          "columns": [
-            "id"
-          ]
+          "columns": ["id"]
         }
       },
       "uniqueConstraints": {},
@@ -993,30 +908,22 @@
       "indexes": {
         "idx_publications_year": {
           "name": "idx_publications_year",
-          "columns": [
-            "publication_year"
-          ],
+          "columns": ["publication_year"],
           "isUnique": false
         },
         "idx_publications_type": {
           "name": "idx_publications_type",
-          "columns": [
-            "publication_type"
-          ],
+          "columns": ["publication_type"],
           "isUnique": false
         },
         "idx_publications_featured": {
           "name": "idx_publications_featured",
-          "columns": [
-            "is_featured"
-          ],
+          "columns": ["is_featured"],
           "isUnique": false
         },
         "idx_publications_slug": {
           "name": "idx_publications_slug",
-          "columns": [
-            "slug"
-          ],
+          "columns": ["slug"],
           "isUnique": false
         }
       },
@@ -1025,12 +932,8 @@
           "name": "publications_project_id_research_projects_id_fk",
           "tableFrom": "publications",
           "tableTo": "research_projects",
-          "columnsFrom": [
-            "project_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["project_id"],
+          "columnsTo": ["id"],
           "onDelete": "set null",
           "onUpdate": "cascade"
         }
@@ -1038,17 +941,13 @@
       "compositePrimaryKeys": {
         "publications_id": {
           "name": "publications_id",
-          "columns": [
-            "id"
-          ]
+          "columns": ["id"]
         }
       },
       "uniqueConstraints": {
         "publications_slug_unique": {
           "name": "publications_slug_unique",
-          "columns": [
-            "slug"
-          ]
+          "columns": ["slug"]
         }
       },
       "checkConstraint": {}
@@ -1157,23 +1056,17 @@
       "indexes": {
         "idx_events_start_time": {
           "name": "idx_events_start_time",
-          "columns": [
-            "start_time"
-          ],
+          "columns": ["start_time"],
           "isUnique": false
         },
         "idx_events_published": {
           "name": "idx_events_published",
-          "columns": [
-            "is_published"
-          ],
+          "columns": ["is_published"],
           "isUnique": false
         },
         "idx_events_slug": {
           "name": "idx_events_slug",
-          "columns": [
-            "slug"
-          ],
+          "columns": ["slug"],
           "isUnique": false
         }
       },
@@ -1181,17 +1074,13 @@
       "compositePrimaryKeys": {
         "events_id": {
           "name": "events_id",
-          "columns": [
-            "id"
-          ]
+          "columns": ["id"]
         }
       },
       "uniqueConstraints": {
         "events_slug_unique": {
           "name": "events_slug_unique",
-          "columns": [
-            "slug"
-          ]
+          "columns": ["slug"]
         }
       },
       "checkConstraint": {}
@@ -1289,9 +1178,7 @@
       "indexes": {
         "idx_gallery_category": {
           "name": "idx_gallery_category",
-          "columns": [
-            "category"
-          ],
+          "columns": ["category"],
           "isUnique": false
         }
       },
@@ -1300,12 +1187,8 @@
           "name": "gallery_media_uploaded_by_users_id_fk",
           "tableFrom": "gallery_media",
           "tableTo": "users",
-          "columnsFrom": [
-            "uploaded_by"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["uploaded_by"],
+          "columnsTo": ["id"],
           "onDelete": "set null",
           "onUpdate": "cascade"
         }
@@ -1313,9 +1196,7 @@
       "compositePrimaryKeys": {
         "gallery_media_id": {
           "name": "gallery_media_id",
-          "columns": [
-            "id"
-          ]
+          "columns": ["id"]
         }
       },
       "uniqueConstraints": {},
@@ -1426,24 +1307,17 @@
       "indexes": {
         "idx_news_published": {
           "name": "idx_news_published",
-          "columns": [
-            "is_published",
-            "published_at"
-          ],
+          "columns": ["is_published", "published_at"],
           "isUnique": false
         },
         "idx_news_category": {
           "name": "idx_news_category",
-          "columns": [
-            "category"
-          ],
+          "columns": ["category"],
           "isUnique": false
         },
         "idx_news_slug": {
           "name": "idx_news_slug",
-          "columns": [
-            "slug"
-          ],
+          "columns": ["slug"],
           "isUnique": false
         }
       },
@@ -1452,12 +1326,8 @@
           "name": "news_author_id_users_id_fk",
           "tableFrom": "news",
           "tableTo": "users",
-          "columnsFrom": [
-            "author_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["author_id"],
+          "columnsTo": ["id"],
           "onDelete": "set null",
           "onUpdate": "cascade"
         }
@@ -1465,17 +1335,13 @@
       "compositePrimaryKeys": {
         "news_id": {
           "name": "news_id",
-          "columns": [
-            "id"
-          ]
+          "columns": ["id"]
         }
       },
       "uniqueConstraints": {
         "news_slug_unique": {
           "name": "news_slug_unique",
-          "columns": [
-            "slug"
-          ]
+          "columns": ["slug"]
         }
       },
       "checkConstraint": {}
@@ -1552,17 +1418,12 @@
       "indexes": {
         "idx_assignments_vehicle": {
           "name": "idx_assignments_vehicle",
-          "columns": [
-            "vehicle_id"
-          ],
+          "columns": ["vehicle_id"],
           "isUnique": false
         },
         "idx_assignments_dates": {
           "name": "idx_assignments_dates",
-          "columns": [
-            "start_time",
-            "end_time"
-          ],
+          "columns": ["start_time", "end_time"],
           "isUnique": false
         }
       },
@@ -1571,12 +1432,8 @@
           "name": "vehicle_assignments_vehicle_id_vehicles_id_fk",
           "tableFrom": "vehicle_assignments",
           "tableTo": "vehicles",
-          "columnsFrom": [
-            "vehicle_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["vehicle_id"],
+          "columnsTo": ["id"],
           "onDelete": "cascade",
           "onUpdate": "cascade"
         },
@@ -1584,12 +1441,8 @@
           "name": "vehicle_assignments_requested_by_id_users_id_fk",
           "tableFrom": "vehicle_assignments",
           "tableTo": "users",
-          "columnsFrom": [
-            "requested_by_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["requested_by_id"],
+          "columnsTo": ["id"],
           "onDelete": "restrict",
           "onUpdate": "cascade"
         }
@@ -1597,9 +1450,7 @@
       "compositePrimaryKeys": {
         "vehicle_assignments_id": {
           "name": "vehicle_assignments_id",
-          "columns": [
-            "id"
-          ]
+          "columns": ["id"]
         }
       },
       "uniqueConstraints": {},
@@ -1717,16 +1568,12 @@
       "indexes": {
         "idx_vehicles_status": {
           "name": "idx_vehicles_status",
-          "columns": [
-            "status"
-          ],
+          "columns": ["status"],
           "isUnique": false
         },
         "idx_vehicles_plate": {
           "name": "idx_vehicles_plate",
-          "columns": [
-            "registration_plate"
-          ],
+          "columns": ["registration_plate"],
           "isUnique": false
         }
       },
@@ -1735,12 +1582,8 @@
           "name": "vehicles_department_id_departments_id_fk",
           "tableFrom": "vehicles",
           "tableTo": "departments",
-          "columnsFrom": [
-            "department_id"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["department_id"],
+          "columnsTo": ["id"],
           "onDelete": "set null",
           "onUpdate": "cascade"
         }
@@ -1748,17 +1591,13 @@
       "compositePrimaryKeys": {
         "vehicles_id": {
           "name": "vehicles_id",
-          "columns": [
-            "id"
-          ]
+          "columns": ["id"]
         }
       },
       "uniqueConstraints": {
         "vehicles_registration_plate_unique": {
           "name": "vehicles_registration_plate_unique",
-          "columns": [
-            "registration_plate"
-          ]
+          "columns": ["registration_plate"]
         }
       },
       "checkConstraint": {}
@@ -1858,16 +1697,12 @@
       "indexes": {
         "idx_messages_status": {
           "name": "idx_messages_status",
-          "columns": [
-            "status"
-          ],
+          "columns": ["status"],
           "isUnique": false
         },
         "idx_messages_created": {
           "name": "idx_messages_created",
-          "columns": [
-            "created_at"
-          ],
+          "columns": ["created_at"],
           "isUnique": false
         }
       },
@@ -1876,12 +1711,8 @@
           "name": "contact_messages_assigned_to_users_id_fk",
           "tableFrom": "contact_messages",
           "tableTo": "users",
-          "columnsFrom": [
-            "assigned_to"
-          ],
-          "columnsTo": [
-            "id"
-          ],
+          "columnsFrom": ["assigned_to"],
+          "columnsTo": ["id"],
           "onDelete": "set null",
           "onUpdate": "cascade"
         }
@@ -1889,9 +1720,7 @@
       "compositePrimaryKeys": {
         "contact_messages_id": {
           "name": "contact_messages_id",
-          "columns": [
-            "id"
-          ]
+          "columns": ["id"]
         }
       },
       "uniqueConstraints": {},
@@ -2027,9 +1856,7 @@
       "compositePrimaryKeys": {
         "system_settings_id": {
           "name": "system_settings_id",
-          "columns": [
-            "id"
-          ]
+          "columns": ["id"]
         }
       },
       "uniqueConstraints": {},

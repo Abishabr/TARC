@@ -4,7 +4,7 @@
  * Stores singleton institutional metadata, leadership profiles, mission/vision texts, and contact details.
  */
 
-import { mysqlTable, varchar, text, json, timestamp } from 'drizzle-orm/mysql-core';
+import { json, mysqlTable, text, timestamp, varchar } from 'drizzle-orm/mysql-core';
 
 /**
  * System Settings Table
@@ -46,14 +46,10 @@ export const systemSettings = mysqlTable('system_settings', {
   directorPhotoUrl: varchar('director_photo_url', { length: 500 }),
 
   /** Official institutional contact email */
-  officialEmail: varchar('official_email', { length: 191 })
-    .notNull()
-    .default('info@tarc.gov.et'),
+  officialEmail: varchar('official_email', { length: 191 }).notNull().default('info@tarc.gov.et'),
 
   /** Official center telephone number */
-  officialPhone: varchar('official_phone', { length: 50 })
-    .notNull()
-    .default('+251 47 556 0000'),
+  officialPhone: varchar('official_phone', { length: 50 }).notNull().default('+251 47 556 0000'),
 
   /** Physical address location */
   physicalAddress: varchar('physical_address', { length: 255 })
@@ -61,8 +57,7 @@ export const systemSettings = mysqlTable('system_settings', {
     .default('Tepi, Sheka Zone, Southwest Ethiopia'),
 
   /** Geographical GPS coordinates string */
-  gpsCoordinates: varchar('gps_coordinates', { length: 100 })
-    .default('7.1997° N, 35.4244° E'),
+  gpsCoordinates: varchar('gps_coordinates', { length: 100 }).default('7.1997° N, 35.4244° E'),
 
   /** Social media URLs formatted as JSON record */
   socialLinks: json('social_links').$type<Record<string, string>>(),

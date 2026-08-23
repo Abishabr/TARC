@@ -9,20 +9,20 @@
 import bcrypt from 'bcryptjs';
 import { db, poolConnection } from '../client.js';
 import {
-  users,
+  events,
+  contactMessages,
   departments,
-  staff,
+  galleryMedia,
+  news,
+  publicationAuthors,
+  publications,
   researchPrograms,
   researchProjects,
-  publications,
-  publicationAuthors,
-  news,
-  events,
-  galleryMedia,
-  vehicles,
-  vehicleAssignments,
-  contactMessages,
+  staff,
   systemSettings,
+  users,
+  vehicleAssignments,
+  vehicles,
 } from '../schema/index.js';
 
 /**
@@ -202,7 +202,11 @@ export async function seedDatabase() {
           position: 'Lead Spice Breeder',
           email: 'abebe.tadesse@tarc.gov.et',
           phone: '+251 92 234 5678',
-          areasOfExpertise: ['Black Pepper Selection', 'Ginger Micropropagation', 'Essential Oil Extraction'],
+          areasOfExpertise: [
+            'Black Pepper Selection',
+            'Ginger Micropropagation',
+            'Essential Oil Extraction',
+          ],
           bio: 'M.Sc. in Plant Genetics from Jimma University, specializing in clonal selection of Southwest Ethiopian wild cardamom populations.',
           isActive: true,
           isFeatured: true,
@@ -287,7 +291,8 @@ export async function seedDatabase() {
           programId: programSpiceId,
           departmentId: deptSpiceId,
           leadResearcherId: staffSpiceLeadId,
-          title: 'Adaptability and Capsule Yield Performance of Elite Korarima (Aframomum corrorima) Clones in Sheka',
+          title:
+            'Adaptability and Capsule Yield Performance of Elite Korarima (Aframomum corrorima) Clones in Sheka',
           slug: 'adaptability-capsule-yield-korarima-clones-sheka',
           code: 'PRJ-KOR-2026-01',
           summary:
@@ -307,7 +312,8 @@ export async function seedDatabase() {
           programId: programCoffeeId,
           departmentId: deptCoffeeId,
           leadResearcherId: staffCoffeeLeadId,
-          title: 'Influence of Albizia gummifera and Cordia africana Shade Canopy on Coffee Cup Quality in Tepi',
+          title:
+            'Influence of Albizia gummifera and Cordia africana Shade Canopy on Coffee Cup Quality in Tepi',
           slug: 'shade-canopy-influence-coffee-cup-quality-tepi',
           code: 'PRJ-COF-2026-02',
           summary:
@@ -338,7 +344,8 @@ export async function seedDatabase() {
         {
           id: pubKorarimaId,
           projectId: projectCardamomId,
-          title: 'Agronomic Characterization and Essential Oil Composition of Ethiopian Korarima (Aframomum corrorima) Accessions in Tepi',
+          title:
+            'Agronomic Characterization and Essential Oil Composition of Ethiopian Korarima (Aframomum corrorima) Accessions in Tepi',
           slug: 'agronomic-characterization-essential-oil-korarima-tepi',
           abstract:
             'Aframomum corrorima is an indigenous high-value spice in Ethiopia. This study evaluated twelve accessions collected across Sheka and Keffa for yield attributes and essential oil yield. Clones TAR-04 and TAR-07 demonstrated superior dry capsule yield exceeding 1.8 tons/ha with 4.8% essential oil content rich in 1,8-cineole.',
@@ -354,7 +361,8 @@ export async function seedDatabase() {
         {
           id: pubCoffeeId,
           projectId: projectCoffeeShadeId,
-          title: 'Technical Guide for Agroforestry Shade Tree Management in Southwest Ethiopian Coffee Forests',
+          title:
+            'Technical Guide for Agroforestry Shade Tree Management in Southwest Ethiopian Coffee Forests',
           slug: 'technical-guide-agroforestry-shade-tree-management-coffee',
           abstract:
             'A practical extension manual designed for development agents, smallholder coffee growers, and commercial farm managers outlining pruning regimes and density recommendations for Cordia africana, Millettia ferruginea, and Albizia gummifera.',
@@ -408,7 +416,8 @@ export async function seedDatabase() {
         {
           id: 'n0000000-0000-0000-0000-000000000001',
           authorId: userSuperAdminId,
-          title: 'TARC Releases High-Yielding Disease-Resistant Black Pepper Variety "Tepi-Pepper-1"',
+          title:
+            'TARC Releases High-Yielding Disease-Resistant Black Pepper Variety "Tepi-Pepper-1"',
           slug: 'tarc-releases-high-yield-black-pepper-variety',
           summary:
             'After six years of participatory varietal selection, the National Variety Release Standing Committee has officially approved "Tepi-Pepper-1" for wide distribution.',
@@ -467,7 +476,8 @@ export async function seedDatabase() {
           status: 'AVAILABLE',
           fuelType: 'DIESEL',
           mileageKm: 48200,
-          notes: 'Regular 45k service completed. Equipped with winch and heavy terrain tires for Sheka trial plots.',
+          notes:
+            'Regular 45k service completed. Equipped with winch and heavy terrain tires for Sheka trial plots.',
         },
         {
           id: vehicle2Id,

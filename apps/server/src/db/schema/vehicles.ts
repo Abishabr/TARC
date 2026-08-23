@@ -4,8 +4,16 @@
  * `vehicles` and `vehicle_assignments` tables.
  */
 
-import { mysqlTable, varchar, text, mysqlEnum, int, timestamp, index } from 'drizzle-orm/mysql-core';
 import { relations } from 'drizzle-orm';
+import {
+  index,
+  int,
+  mysqlEnum,
+  mysqlTable,
+  text,
+  timestamp,
+  varchar,
+} from 'drizzle-orm/mysql-core';
 import { departments } from './departments';
 import { users } from './users';
 
@@ -32,30 +40,21 @@ export const vehicles = mysqlTable(
     year: int('year').notNull(),
 
     /** Vehicle physical body type */
-    vehicleType: mysqlEnum('vehicle_type', [
-      'SUV',
-      'PICKUP_4WD',
-      'TRUCK',
-      'VAN',
-      'MOTORCYCLE',
-    ])
+    vehicleType: mysqlEnum('vehicle_type', ['SUV', 'PICKUP_4WD', 'TRUCK', 'VAN', 'MOTORCYCLE'])
       .notNull()
       .default('PICKUP_4WD'),
 
     /** Foreign key to department currently allocated this vehicle */
-    departmentId: varchar('department_id', { length: 36 })
-      .references(() => departments.id, { onDelete: 'set null', onUpdate: 'cascade' }),
+    departmentId: varchar('department_id', { length: 36 }).references(() => departments.id, {
+      onDelete: 'set null',
+      onUpdate: 'cascade',
+    }),
 
     /** Name of dedicated institutional driver */
     assignedDriver: varchar('assigned_driver', { length: 120 }),
 
     /** Real-time fleet operational status */
-    status: mysqlEnum('status', [
-      'AVAILABLE',
-      'IN_USE',
-      'UNDER_MAINTENANCE',
-      'DECOMMISSIONED',
-    ])
+    status: mysqlEnum('status', ['AVAILABLE', 'IN_USE', 'UNDER_MAINTENANCE', 'DECOMMISSIONED'])
       .notNull()
       .default('AVAILABLE'),
 
@@ -113,13 +112,7 @@ export const vehicleAssignments = mysqlTable(
     endTime: timestamp('end_time').notNull(),
 
     /** Approval and dispatch status */
-    status: mysqlEnum('status', [
-      'PENDING',
-      'APPROVED',
-      'ACTIVE',
-      'COMPLETED',
-      'CANCELLED',
-    ])
+    status: mysqlEnum('status', ['PENDING', 'APPROVED', 'ACTIVE', 'COMPLETED', 'CANCELLED'])
       .notNull()
       .default('PENDING'),
 

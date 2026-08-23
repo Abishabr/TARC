@@ -4,8 +4,18 @@
  * `news`, `events`, and `gallery_media` tables.
  */
 
-import { mysqlTable, varchar, text, mysqlEnum, boolean, timestamp, int, date, index } from 'drizzle-orm/mysql-core';
 import { relations } from 'drizzle-orm';
+import {
+  boolean,
+  date,
+  index,
+  int,
+  mysqlEnum,
+  mysqlTable,
+  text,
+  timestamp,
+  varchar,
+} from 'drizzle-orm/mysql-core';
 import { users } from './users';
 
 /**
@@ -19,8 +29,10 @@ export const news = mysqlTable(
     id: varchar('id', { length: 36 }).primaryKey(),
 
     /** Foreign key to author user account */
-    authorId: varchar('author_id', { length: 36 })
-      .references(() => users.id, { onDelete: 'set null', onUpdate: 'cascade' }),
+    authorId: varchar('author_id', { length: 36 }).references(() => users.id, {
+      onDelete: 'set null',
+      onUpdate: 'cascade',
+    }),
 
     /** Article headline */
     title: varchar('title', { length: 255 }).notNull(),
@@ -35,12 +47,7 @@ export const news = mysqlTable(
     content: text('content').notNull(),
 
     /** Article category */
-    category: mysqlEnum('category', [
-      'RESEARCH_NEWS',
-      'INSTITUTIONAL',
-      'FARMER_ADVISORY',
-      'EVENTS',
-    ])
+    category: mysqlEnum('category', ['RESEARCH_NEWS', 'INSTITUTIONAL', 'FARMER_ADVISORY', 'EVENTS'])
       .notNull()
       .default('INSTITUTIONAL'),
 
@@ -141,8 +148,10 @@ export const galleryMedia = mysqlTable(
     id: varchar('id', { length: 36 }).primaryKey(),
 
     /** User who uploaded the media asset */
-    uploadedBy: varchar('uploaded_by', { length: 36 })
-      .references(() => users.id, { onDelete: 'set null', onUpdate: 'cascade' }),
+    uploadedBy: varchar('uploaded_by', { length: 36 }).references(() => users.id, {
+      onDelete: 'set null',
+      onUpdate: 'cascade',
+    }),
 
     /** Photo title */
     title: varchar('title', { length: 200 }).notNull(),

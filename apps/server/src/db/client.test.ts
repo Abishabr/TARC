@@ -4,9 +4,9 @@
  * connection pool configuration parameters, and schema bindings.
  */
 
-import { describe, it, expect } from 'vitest';
-import { db, poolConnection } from './client';
+import { describe, expect, it } from 'vitest';
 import { databaseConfig } from '../config/database';
+import { db, poolConnection } from './client';
 import * as schema from './schema/index';
 
 describe('Database Client & Connection Configuration', () => {

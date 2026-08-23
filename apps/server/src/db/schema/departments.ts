@@ -5,10 +5,10 @@
  * (e.g. Spices & Essential Oils, Coffee & Beverage Crops, Crop Protection).
  */
 
-import { mysqlTable, varchar, text, int, timestamp, index } from 'drizzle-orm/mysql-core';
 import { relations } from 'drizzle-orm';
-import { staff } from './staff';
+import { index, int, mysqlTable, text, timestamp, varchar } from 'drizzle-orm/mysql-core';
 import { researchPrograms, researchProjects } from './research';
+import { staff } from './staff';
 import { vehicles } from './vehicles';
 
 /**

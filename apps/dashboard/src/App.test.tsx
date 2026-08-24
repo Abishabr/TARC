@@ -35,22 +35,25 @@ describe('TARCMS Dashboard — App Component', () => {
 
   it('renders dashboard after successful login', async () => {
     // Mock the fetch call
-    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
-      ok: true,
-      json: async () => ({
-        success: true,
-        data: {
-          token: 'mock-token-123',
-          user: {
-            id: '1',
-            name: 'Dr. Girma Bekele',
-            email: 'admin@tarc.gov.et',
-            role: 'SUPER_ADMIN',
-            avatarUrl: null,
+    vi.stubGlobal(
+      'fetch',
+      vi.fn().mockResolvedValue({
+        ok: true,
+        json: async () => ({
+          success: true,
+          data: {
+            token: 'mock-token-123',
+            user: {
+              id: '1',
+              name: 'Dr. Girma Bekele',
+              email: 'admin@tarc.gov.et',
+              role: 'SUPER_ADMIN',
+              avatarUrl: null,
+            },
           },
-        },
-      }),
-    }));
+        }),
+      })
+    );
 
     renderWithRouter(<App />);
 
@@ -76,13 +79,16 @@ describe('TARCMS Dashboard — App Component', () => {
 
   it('shows error on failed login', async () => {
     // Mock the fetch call to return an error
-    vi.stubGlobal('fetch', vi.fn().mockResolvedValue({
-      ok: false,
-      json: async () => ({
-        success: false,
-        error: { code: 'INVALID_CREDENTIALS', message: 'Invalid email or password' },
-      }),
-    }));
+    vi.stubGlobal(
+      'fetch',
+      vi.fn().mockResolvedValue({
+        ok: false,
+        json: async () => ({
+          success: false,
+          error: { code: 'INVALID_CREDENTIALS', message: 'Invalid email or password' },
+        }),
+      })
+    );
 
     renderWithRouter(<App />);
 

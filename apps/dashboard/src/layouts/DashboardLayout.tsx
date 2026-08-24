@@ -29,7 +29,11 @@ export function DashboardLayout({ user, onLogout }: DashboardLayoutProps) {
         onLogout={onLogout}
       />
       <div className="flex flex-1 flex-col overflow-hidden">
-        <DashboardHeader user={user} onMenuToggle={() => setSidebarOpen(!sidebarOpen)} onLogout={onLogout} />
+        <DashboardHeader
+          user={user}
+          onMenuToggle={() => setSidebarOpen(!sidebarOpen)}
+          onLogout={onLogout}
+        />
         <main className="flex-1 overflow-y-auto p-6">
           <Outlet />
         </main>

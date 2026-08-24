@@ -35,21 +35,56 @@ interface DashboardSidebarProps {
 }
 
 const allNavigation = [
-  { name: 'Overview', href: '/dashboard', icon: LayoutDashboard, roles: ['SUPER_ADMIN', 'ADMIN', 'RESEARCHER', 'STAFF'] },
-  { name: 'Departments', href: '/dashboard/departments', icon: Building2, roles: ['SUPER_ADMIN', 'ADMIN'] },
+  {
+    name: 'Overview',
+    href: '/dashboard',
+    icon: LayoutDashboard,
+    roles: ['SUPER_ADMIN', 'ADMIN', 'RESEARCHER', 'STAFF'],
+  },
+  {
+    name: 'Departments',
+    href: '/dashboard/departments',
+    icon: Building2,
+    roles: ['SUPER_ADMIN', 'ADMIN'],
+  },
   { name: 'Staff', href: '/dashboard/staff', icon: Users, roles: ['SUPER_ADMIN', 'ADMIN'] },
-  { name: 'Research Programs', href: '/dashboard/research-programs', icon: FlaskConical, roles: ['SUPER_ADMIN', 'ADMIN', 'RESEARCHER'] },
-  { name: 'Projects', href: '/dashboard/projects', icon: FolderOpen, roles: ['SUPER_ADMIN', 'ADMIN', 'RESEARCHER'] },
-  { name: 'Publications', href: '/dashboard/publications', icon: BookOpen, roles: ['SUPER_ADMIN', 'ADMIN', 'RESEARCHER'] },
+  {
+    name: 'Research Programs',
+    href: '/dashboard/research-programs',
+    icon: FlaskConical,
+    roles: ['SUPER_ADMIN', 'ADMIN', 'RESEARCHER'],
+  },
+  {
+    name: 'Projects',
+    href: '/dashboard/projects',
+    icon: FolderOpen,
+    roles: ['SUPER_ADMIN', 'ADMIN', 'RESEARCHER'],
+  },
+  {
+    name: 'Publications',
+    href: '/dashboard/publications',
+    icon: BookOpen,
+    roles: ['SUPER_ADMIN', 'ADMIN', 'RESEARCHER'],
+  },
   { name: 'News', href: '/dashboard/news', icon: Newspaper, roles: ['SUPER_ADMIN', 'ADMIN'] },
   { name: 'Events', href: '/dashboard/events', icon: Calendar, roles: ['SUPER_ADMIN', 'ADMIN'] },
   { name: 'Gallery', href: '/dashboard/gallery', icon: Image, roles: ['SUPER_ADMIN', 'ADMIN'] },
   { name: 'Vehicles', href: '/dashboard/vehicles', icon: Car, roles: ['SUPER_ADMIN', 'ADMIN'] },
-  { name: 'Messages', href: '/dashboard/messages', icon: MessageSquare, roles: ['SUPER_ADMIN', 'ADMIN', 'RESEARCHER', 'STAFF'] },
+  {
+    name: 'Messages',
+    href: '/dashboard/messages',
+    icon: MessageSquare,
+    roles: ['SUPER_ADMIN', 'ADMIN', 'RESEARCHER', 'STAFF'],
+  },
 ];
 
 const bottomNavigation = [
-  { name: 'Settings', href: '/dashboard/settings', icon: Settings, roles: ['SUPER_ADMIN', 'ADMIN', 'RESEARCHER', 'STAFF'] },
+  {
+    name: 'Settings',
+    href: '/dashboard/settings',
+    icon: Settings,
+    roles: ['SUPER_ADMIN', 'ADMIN', 'RESEARCHER', 'STAFF'],
+  },
 ];
 
 export function DashboardSidebar({ user, open, onClose, onLogout }: DashboardSidebarProps) {

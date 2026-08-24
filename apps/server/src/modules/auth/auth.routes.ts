@@ -5,7 +5,7 @@
 
 import bcrypt from 'bcryptjs';
 import { eq } from 'drizzle-orm';
-import { Router, Request, Response } from 'express';
+import { Request, Response, Router } from 'express';
 import jwt from 'jsonwebtoken';
 import { db } from '../../db/client.js';
 import { users } from '../../db/schema/index.js';
@@ -61,11 +61,9 @@ router.post('/login', async (req: Request, res: Response) => {
     }
 
     // Generate JWT token
-    const token = jwt.sign(
-      { userId: user.id, email: user.email, role: user.role },
-      JWT_SECRET,
-      { expiresIn: '24h' }
-    );
+    const token = jwt.sign({ userId: user.id, email: user.email, role: user.role }, JWT_SECRET, {
+      expiresIn: '24h',
+    });
 
     // Return user info (excluding password hash)
     res.json({

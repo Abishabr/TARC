@@ -7,7 +7,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { Bell, LogOut, Menu, Settings, User } from 'lucide-react';
+import { Bell, LogOut, Menu, Settings, User as UserIcon } from 'lucide-react';
 
 interface User {
   id: string;
@@ -62,7 +62,9 @@ export function DashboardHeader({ user, onMenuToggle, onLogout }: DashboardHeade
         <DropdownMenu>
           <DropdownMenuTrigger className="relative h-10 w-10 rounded-full outline-none">
             <Avatar className="h-10 w-10 cursor-pointer">
-              <AvatarFallback className="bg-primary text-primary-foreground">{initials}</AvatarFallback>
+              <AvatarFallback className="bg-primary text-primary-foreground">
+                {initials}
+              </AvatarFallback>
             </Avatar>
           </DropdownMenuTrigger>
           <DropdownMenuContent className="w-56" align="end">
@@ -80,7 +82,7 @@ export function DashboardHeader({ user, onMenuToggle, onLogout }: DashboardHeade
             </div>
             <DropdownMenuSeparator />
             <DropdownMenuItem>
-              <User className="mr-2 h-4 w-4" />
+              <UserIcon className="mr-2 h-4 w-4" />
               Profile
             </DropdownMenuItem>
             <DropdownMenuItem>

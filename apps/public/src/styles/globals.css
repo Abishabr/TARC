@@ -54,11 +54,11 @@
     --radius: 0.625rem;
 
     /* Chart Colors */
-    --chart-1: 152 53% 52%;  /* Fern #52B788 */
-    --chart-2: 28 45% 65%;   /* Earth #D4A373 */
-    --chart-3: 152 68% 17%;  /* Deep Forest */
-    --chart-4: 152 53% 29%;  /* Canopy */
-    --chart-5: 40 33% 90%;   /* Cream */
+    --chart-1: 152 53% 52%; /* Fern #52B788 */
+    --chart-2: 28 45% 65%; /* Earth #D4A373 */
+    --chart-3: 152 68% 17%; /* Deep Forest */
+    --chart-4: 152 53% 29%; /* Canopy */
+    --chart-5: 40 33% 90%; /* Cream */
 
     /* Sidebar */
     --sidebar: 152 68% 17%;

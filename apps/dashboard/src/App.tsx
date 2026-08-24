@@ -26,6 +26,36 @@ function Placeholder({ title }: { title: string }) {
   );
 }
 
+interface DashboardProps {
+  user: User;
+  onLogout: () => void;
+}
+
+function Dashboard({ user, onLogout }: DashboardProps) {
+  return (
+    <Routes>
+      <Route element={<DashboardLayout user={user} onLogout={onLogout} />}>
+        <Route path="/dashboard" element={<Placeholder title="Overview" />} />
+        <Route path="/dashboard/departments" element={<Placeholder title="Departments" />} />
+        <Route path="/dashboard/staff" element={<Placeholder title="Staff" />} />
+        <Route
+          path="/dashboard/research-programs"
+          element={<Placeholder title="Research Programs" />}
+        />
+        <Route path="/dashboard/projects" element={<Placeholder title="Projects" />} />
+        <Route path="/dashboard/publications" element={<Placeholder title="Publications" />} />
+        <Route path="/dashboard/news" element={<Placeholder title="News" />} />
+        <Route path="/dashboard/events" element={<Placeholder title="Events" />} />
+        <Route path="/dashboard/gallery" element={<Placeholder title="Gallery" />} />
+        <Route path="/dashboard/vehicles" element={<Placeholder title="Vehicles" />} />
+        <Route path="/dashboard/messages" element={<Placeholder title="Messages" />} />
+        <Route path="/dashboard/settings" element={<Placeholder title="Settings" />} />
+        <Route path="*" element={<Placeholder title="Page Not Found" />} />
+      </Route>
+    </Routes>
+  );
+}
+
 /**
  * Root Dashboard Application Component.
  * Shows login page when unauthenticated, dashboard when authenticated.
@@ -57,7 +87,13 @@ export function App(): React.ReactElement {
     }
   }, [user]);
 
-  const handleLogin = (userData: { id: string; name: string; email: string; role: string; token: string }) => {
+  const handleLogin = (userData: {
+    id: string;
+    name: string;
+    email: string;
+    role: string;
+    token: string;
+  }) => {
     setUser(userData);
   };
 
@@ -71,28 +107,7 @@ export function App(): React.ReactElement {
     return <LoginPage onLogin={handleLogin} />;
   }
 
-  return (
-    <Routes>
-      <Route element={<DashboardLayout user={user!} onLogout={handleLogout} />}>
-        <Route path="/dashboard" element={<Placeholder title="Overview" />} />
-        <Route path="/dashboard/departments" element={<Placeholder title="Departments" />} />
-        <Route path="/dashboard/staff" element={<Placeholder title="Staff" />} />
-        <Route
-          path="/dashboard/research-programs"
-          element={<Placeholder title="Research Programs" />}
-        />
-        <Route path="/dashboard/projects" element={<Placeholder title="Projects" />} />
-        <Route path="/dashboard/publications" element={<Placeholder title="Publications" />} />
-        <Route path="/dashboard/news" element={<Placeholder title="News" />} />
-        <Route path="/dashboard/events" element={<Placeholder title="Events" />} />
-        <Route path="/dashboard/gallery" element={<Placeholder title="Gallery" />} />
-        <Route path="/dashboard/vehicles" element={<Placeholder title="Vehicles" />} />
-        <Route path="/dashboard/messages" element={<Placeholder title="Messages" />} />
-        <Route path="/dashboard/settings" element={<Placeholder title="Settings" />} />
-        <Route path="*" element={<Placeholder title="Page Not Found" />} />
-      </Route>
-    </Routes>
-  );
+  return <Dashboard user={user} onLogout={handleLogout} />;
 }
 
 export default App;

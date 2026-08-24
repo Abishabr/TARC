@@ -124,7 +124,13 @@ function TopographicContours() {
 }
 
 interface LoginPageProps {
-  onLogin?: (user: { id: string; name: string; email: string; role: string; token: string }) => void;
+  onLogin?: (user: {
+    id: string;
+    name: string;
+    email: string;
+    role: string;
+    token: string;
+  }) => void;
 }
 
 /**

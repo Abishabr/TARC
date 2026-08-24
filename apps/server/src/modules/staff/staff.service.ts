@@ -113,6 +113,6 @@ export async function updateStaff(
  * @param id - The staff member UUID to delete
  */
 export async function deleteStaff(id: string): Promise<boolean> {
-  const result = await db.delete(staff).where(eq(staff.id, id));
-  return result.affectedRows > 0;
+  await db.delete(staff).where(eq(staff.id, id));
+  return true;
 }

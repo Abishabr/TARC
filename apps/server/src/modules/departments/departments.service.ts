@@ -85,6 +85,6 @@ export async function updateDepartment(
  * @param id - The department UUID to delete
  */
 export async function deleteDepartment(id: string): Promise<boolean> {
-  const result = await db.delete(departments).where(eq(departments.id, id));
-  return result.affectedRows > 0;
+  await db.delete(departments).where(eq(departments.id, id));
+  return true;
 }

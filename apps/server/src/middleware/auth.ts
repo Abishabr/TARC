@@ -20,11 +20,9 @@ export function authenticateToken(req: AuthenticatedRequest, res: Response, next
     req.user = decoded;
     next();
   } catch {
-    return res
-      .status(401)
-      .json({
-        success: false,
-        error: { code: 'INVALID_TOKEN', message: 'Token is invalid or expired.' },
-      });
+    return res.status(401).json({
+      success: false,
+      error: { code: 'INVALID_TOKEN', message: 'Token is invalid or expired.' },
+    });
   }
 }

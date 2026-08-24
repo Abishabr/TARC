@@ -1,6 +1,6 @@
 import { NextFunction, Response } from 'express';
-import { AuthenticatedRequest } from './auth.js';
 import { UserRole } from '../utils/security.js';
+import { AuthenticatedRequest } from './auth.js';
 
 export function requireRole(...allowedRoles: UserRole[]) {
   return (req: AuthenticatedRequest, res: Response, next: NextFunction) => {

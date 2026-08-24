@@ -1,6 +1,6 @@
+import { UserRoleType } from '@tarcms/shared';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
-import { UserRoleType } from '@tarcms/shared';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'fallback_secret_key_tarcms_2026';
 const SALT_ROUNDS = 10;

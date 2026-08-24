@@ -1,5 +1,5 @@
-import { describe, it, expect } from 'vitest';
-import { hashPassword, verifyPassword, generateToken, verifyToken } from './security.js';
+import { describe, expect, it } from 'vitest';
+import { generateToken, hashPassword, verifyPassword, verifyToken } from './security.js';
 
 describe('Security Utilities', () => {
   it('hashes and verifies a password correctly', async () => {

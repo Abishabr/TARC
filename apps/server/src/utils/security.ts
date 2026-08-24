@@ -1,14 +1,15 @@
-import { UserRoleType } from '@tarcms/shared';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 
 const JWT_SECRET = process.env.JWT_SECRET || 'fallback_secret_key_tarcms_2026';
 const SALT_ROUNDS = 10;
 
+export type UserRole = 'SUPER_ADMIN' | 'ADMIN' | 'RESEARCHER' | 'STAFF';
+
 export interface AuthTokenPayload {
   id: string;
   email: string;
-  role: UserRoleType;
+  role: UserRole;
 }
 
 export async function hashPassword(plainText: string): Promise<string> {

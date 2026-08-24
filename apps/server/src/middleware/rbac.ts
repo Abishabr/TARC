@@ -1,8 +1,8 @@
-import { UserRoleType } from '@tarcms/shared';
 import { NextFunction, Response } from 'express';
 import { AuthenticatedRequest } from './auth.js';
+import { UserRole } from '../utils/security.js';
 
-export function requireRole(...allowedRoles: UserRoleType[]) {
+export function requireRole(...allowedRoles: UserRole[]) {
   return (req: AuthenticatedRequest, res: Response, next: NextFunction) => {
     if (!req.user) {
       return res.status(401).json({

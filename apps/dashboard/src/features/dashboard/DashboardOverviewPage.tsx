@@ -94,7 +94,10 @@ export function DashboardOverviewPage() {
 
       <div className="grid grid-cols-2 gap-4 lg:grid-cols-5">
         {isLoading
-          ? Array.from({ length: 5 }, (_, i) => <KPICardSkeleton key={`skeleton-${i}`} />)
+          ? Array.from({ length: 5 }, (_, i) => (
+              // biome-ignore lint/suspicious/noArrayIndexKey: Fixed-count skeleton placeholders
+              <KPICardSkeleton key={`skeleton-${i}`} />
+            ))
           : kpiCards.map((card) => <KPICard key={card.label} {...card} />)}
       </div>
 

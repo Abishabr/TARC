@@ -64,8 +64,8 @@ export function AdminSettingsPage() {
       <div className="space-y-6">
         <PageHeader title="Settings" description="Manage system and institution settings." />
         <div className="animate-pulse space-y-4">
-          {Array.from({ length: 3 }).map((_, i) => (
-            <div key={i} className="h-10 rounded bg-muted" />
+          {Array.from({ length: 3 }, (_, i) => (
+            <div key={`skeleton-${i}`} className="h-10 rounded bg-muted" />
           ))}
         </div>
       </div>

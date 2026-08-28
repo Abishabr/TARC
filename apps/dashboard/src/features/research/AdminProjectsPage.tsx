@@ -243,7 +243,9 @@ export function AdminProjectsPage() {
         }}
         title="Delete project?"
         description="This action cannot be undone. The project will be permanently removed."
-        onConfirm={() => deleteMutation.mutate(deletingId!)}
+        onConfirm={() => {
+          if (deletingId) deleteMutation.mutate(deletingId);
+        }}
         loading={deleteMutation.isPending}
       />
     </div>

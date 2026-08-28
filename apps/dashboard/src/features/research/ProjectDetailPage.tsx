@@ -57,8 +57,8 @@ export function ProjectDetailPage() {
       <div className="space-y-6">
         <PageHeader title="Loading..." description="Please wait" />
         <div className="animate-pulse space-y-4">
-          {Array.from({ length: 3 }).map((_, i) => (
-            <div key={i} className="h-10 rounded bg-muted" />
+          {Array.from({ length: 3 }, (_, i) => (
+            <div key={`skeleton-${i}`} className="h-10 rounded bg-muted" />
           ))}
         </div>
       </div>
@@ -255,7 +255,9 @@ export function ProjectDetailPage() {
         title="Delete project?"
         description="This action cannot be undone. The project will be permanently removed."
         confirmLabel="Delete Project"
-        onConfirm={() => deleteMutation.mutate(id!)}
+        onConfirm={() => {
+          if (id) deleteMutation.mutate(id);
+        }}
         loading={deleteMutation.isPending}
       />
     </div>

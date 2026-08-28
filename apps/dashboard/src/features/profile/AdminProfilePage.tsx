@@ -44,10 +44,12 @@ export function AdminProfilePage() {
     method: 'PATCH',
     queryKeyToInvalidate: ['user-profile'],
     onSuccess: (data) => {
-      const updatedUser = { ...user!, ...data };
-      localStorage.setItem('tarcms_user', JSON.stringify(updatedUser));
-      setToast({ message: 'Profile updated successfully', type: 'success' });
-      setTimeout(() => setToast(null), 3000);
+      if (user) {
+        const updatedUser = { ...user, ...data };
+        localStorage.setItem('tarcms_user', JSON.stringify(updatedUser));
+        setToast({ message: 'Profile updated successfully', type: 'success' });
+        setTimeout(() => setToast(null), 3000);
+      }
     },
     onError: () => {
       setToast({ message: 'Failed to update profile', type: 'error' });

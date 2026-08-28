@@ -205,7 +205,9 @@ export function AdminResearchProgramsPage() {
         }}
         title="Delete research program?"
         description="This action cannot be undone. The program will be permanently removed."
-        onConfirm={() => deleteMutation.mutate(deletingId!)}
+        onConfirm={() => {
+          if (deletingId) deleteMutation.mutate(deletingId);
+        }}
         loading={deleteMutation.isPending}
       />
     </div>

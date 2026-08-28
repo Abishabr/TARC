@@ -40,9 +40,9 @@ export function useApiMutation<TData, TVariables = unknown>({
     },
     onSuccess: (data) => {
       if (queryKeyToInvalidate) {
-        queryKeyToInvalidate.forEach((key) => {
+        for (const key of queryKeyToInvalidate) {
           queryClient.invalidateQueries({ queryKey: [key] });
-        });
+        }
       }
       onSuccess?.(data);
     },

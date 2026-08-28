@@ -199,7 +199,9 @@ export function AdminNewsPage() {
         }}
         title="Delete news article?"
         description="This action cannot be undone. The news article will be permanently removed."
-        onConfirm={() => deleteMutation.mutate(deletingId!)}
+        onConfirm={() => {
+          if (deletingId) deleteMutation.mutate(deletingId);
+        }}
         loading={deleteMutation.isPending}
       />
     </div>

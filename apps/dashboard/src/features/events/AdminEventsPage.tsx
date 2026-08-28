@@ -194,7 +194,9 @@ export function AdminEventsPage() {
         }}
         title="Delete event?"
         description="This action cannot be undone. The event will be permanently removed."
-        onConfirm={() => deleteMutation.mutate(deletingId!)}
+        onConfirm={() => {
+          if (deletingId) deleteMutation.mutate(deletingId);
+        }}
         loading={deleteMutation.isPending}
       />
     </div>

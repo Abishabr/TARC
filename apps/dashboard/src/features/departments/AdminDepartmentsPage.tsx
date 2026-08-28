@@ -183,7 +183,9 @@ export function AdminDepartmentsPage() {
         }}
         title="Delete department?"
         description="This action cannot be undone. The department will be permanently removed."
-        onConfirm={() => deleteMutation.mutate(deletingId!)}
+        onConfirm={() => {
+          if (deletingId) deleteMutation.mutate(deletingId);
+        }}
         loading={deleteMutation.isPending}
       />
     </div>

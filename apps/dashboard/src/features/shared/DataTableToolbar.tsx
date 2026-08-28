@@ -70,7 +70,11 @@ export function DataTableToolbar({
           variant="ghost"
           size="sm"
           onClick={() => {
-            filters?.forEach((f) => onFilterChange?.(f.label, ''));
+            if (filters) {
+              for (const f of filters) {
+                onFilterChange?.(f.label, '');
+              }
+            }
           }}
           className="h-9"
         >

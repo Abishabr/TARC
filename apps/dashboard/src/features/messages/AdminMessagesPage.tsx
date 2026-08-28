@@ -53,8 +53,8 @@ export function AdminMessagesPage() {
 
       {isLoading ? (
         <div className="grid gap-4 lg:grid-cols-2">
-          {Array.from({ length: 3 }).map((_, i) => (
-            <Card key={i} className="animate-pulse">
+          {Array.from({ length: 3 }, (_, i) => (
+            <Card key={`skeleton-${i}`} className="animate-pulse">
               <CardContent className="p-4">
                 <div className="space-y-2">
                   <div className="h-4 w-1/3 rounded bg-muted" />
@@ -76,6 +76,7 @@ export function AdminMessagesPage() {
           <div className="space-y-2">
             {messages.map((msg) => (
               <button
+                type="button"
                 key={msg.id}
                 onClick={() => setSelectedId(msg.id)}
                 className={cn(

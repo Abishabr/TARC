@@ -196,7 +196,9 @@ export function AdminPublicationsPage() {
         }}
         title="Delete publication?"
         description="This action cannot be undone. The publication will be permanently removed."
-        onConfirm={() => deleteMutation.mutate(deletingId!)}
+        onConfirm={() => {
+          if (deletingId) deleteMutation.mutate(deletingId);
+        }}
         loading={deleteMutation.isPending}
       />
     </div>

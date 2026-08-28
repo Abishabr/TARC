@@ -238,7 +238,9 @@ export function AdminVehiclesPage() {
         }}
         title="Delete vehicle?"
         description="This action cannot be undone. The vehicle will be permanently removed."
-        onConfirm={() => deleteMutation.mutate(deletingId!)}
+        onConfirm={() => {
+          if (deletingId) deleteMutation.mutate(deletingId);
+        }}
         loading={deleteMutation.isPending}
       />
     </div>

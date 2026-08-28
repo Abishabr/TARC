@@ -179,7 +179,9 @@ export function AdminStaffPage() {
         title="Delete staff member?"
         description="This action cannot be undone. The staff member will be permanently removed."
         confirmLabel="Delete Staff"
-        onConfirm={() => deleteMutation.mutate(deletingId!)}
+        onConfirm={() => {
+          if (deletingId) deleteMutation.mutate(deletingId);
+        }}
         loading={deleteMutation.isPending}
       />
     </div>

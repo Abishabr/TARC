@@ -19,6 +19,8 @@ const config: Config = {
     },
     extend: {
       fontFamily: {
+        sans: ['Inter', 'sans-serif'],
+        heading: ['"DM Serif Display"', 'serif'],
         editorial: ['"DM Serif Display"', 'serif'],
       },
       colors: {

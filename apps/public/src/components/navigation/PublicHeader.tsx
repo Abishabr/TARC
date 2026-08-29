@@ -32,7 +32,10 @@ export function PublicHeader() {
       <div className="bg-primary text-white">
         <div className="max-w-[1440px] mx-auto px-6 h-9 flex items-center justify-between text-[11px] tracking-wide">
           <div className="flex items-center gap-6">
-            <a href="tel:+251475560000" className="flex items-center gap-1.5 hover:opacity-80 transition-opacity">
+            <a
+              href="tel:+251475560000"
+              className="flex items-center gap-1.5 hover:opacity-80 transition-opacity"
+            >
               <Phone className="h-3 w-3" />
               +251 47 556 0000
             </a>
@@ -66,7 +69,9 @@ export function PublicHeader() {
               T
             </div>
             <div className="flex flex-col">
-              <span className="font-heading text-xl font-bold text-foreground leading-tight">TARC</span>
+              <span className="font-heading text-xl font-bold text-foreground leading-tight">
+                TARC
+              </span>
               <span className="text-[9px] uppercase tracking-[0.15em] text-muted-foreground leading-tight hidden sm:block">
                 Agricultural Research
               </span>
@@ -82,9 +87,7 @@ export function PublicHeader() {
                   key={link.path}
                   to={link.path}
                   className={`relative px-4 py-2 text-[13px] font-medium transition-colors ${
-                    isActive
-                      ? 'text-primary'
-                      : 'text-muted-foreground hover:text-foreground'
+                    isActive ? 'text-primary' : 'text-muted-foreground hover:text-foreground'
                   }`}
                 >
                   {link.label}
@@ -122,6 +125,10 @@ export function PublicHeader() {
           <div
             className="fixed inset-0 bg-black/40 backdrop-blur-sm"
             onClick={() => setMobileOpen(false)}
+            onKeyDown={(e) => e.key === 'Escape' && setMobileOpen(false)}
+            role="button"
+            tabIndex={-1}
+            aria-label="Close menu"
           />
           <div className="fixed inset-y-0 right-0 w-80 bg-white shadow-2xl flex flex-col">
             <div className="flex items-center justify-between px-6 h-16 border-b border-border">
@@ -143,9 +150,7 @@ export function PublicHeader() {
                     key={link.path}
                     to={link.path}
                     className={`mx-2 px-4 py-3 text-[15px] font-medium rounded-sm transition-colors ${
-                      isActive
-                        ? 'bg-primary/10 text-primary'
-                        : 'text-foreground hover:bg-muted'
+                      isActive ? 'bg-primary/10 text-primary' : 'text-foreground hover:bg-muted'
                     }`}
                   >
                     {link.label}

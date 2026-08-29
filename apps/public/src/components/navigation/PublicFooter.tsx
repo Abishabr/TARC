@@ -38,8 +38,8 @@ export function PublicFooter() {
               </div>
             </Link>
             <p className="text-sm text-white/50 max-w-xs leading-relaxed mb-6">
-              Tepi Agricultural Research Center — Advancing agricultural research and innovation
-              for sustainable development in southwestern Ethiopia.
+              Tepi Agricultural Research Center — Advancing agricultural research and innovation for
+              sustainable development in southwestern Ethiopia.
             </p>
             <div className="space-y-2.5">
               <a
@@ -127,7 +127,9 @@ export function PublicFooter() {
             &copy; {new Date().getFullYear()} Tepi Agricultural Research Center
           </p>
           <div className="flex gap-6">
-            <span className="text-[11px] text-white/30 uppercase tracking-widest">Privacy Policy</span>
+            <span className="text-[11px] text-white/30 uppercase tracking-widest">
+              Privacy Policy
+            </span>
             <span className="text-[11px] text-white/30 uppercase tracking-widest">Terms</span>
           </div>
         </div>

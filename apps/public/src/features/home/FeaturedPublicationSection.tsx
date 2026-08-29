@@ -60,7 +60,9 @@ export function FeaturedPublicationSection() {
                   <div className="mt-2 flex items-center gap-3 text-[12px] text-muted-foreground">
                     {pub.authors && (
                       <span>
-                        {Array.isArray(pub.authors) ? pub.authors.slice(0, 3).join(', ') : pub.authors}
+                        {Array.isArray(pub.authors)
+                          ? pub.authors.slice(0, 3).join(', ')
+                          : pub.authors}
                       </span>
                     )}
                     {pub.publicationType && (

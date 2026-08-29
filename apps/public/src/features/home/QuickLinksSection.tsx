@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom';
 const LINKS = [
   {
     title: 'Research Programs',
-    description: 'Explore our ongoing research initiatives in agriculture, horticulture, and plant pathology.',
+    description:
+      'Explore our ongoing research initiatives in agriculture, horticulture, and plant pathology.',
     href: '/research',
   },
   {

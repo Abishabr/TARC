@@ -1,5 +1,5 @@
-import { useEffect } from 'react';
 import { ArrowRight } from 'lucide-react';
+import { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { FeaturedPublicationSection } from './FeaturedPublicationSection';
 import { HeroBanner } from './HeroBanner';

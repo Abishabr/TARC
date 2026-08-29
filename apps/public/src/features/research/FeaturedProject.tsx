@@ -1,10 +1,10 @@
-import { Button } from '@/components/ui/button';
 import { useProjects } from '@/api/hooks/useProjects';
+import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export function FeaturedProject() {
-  const { data, isLoading } = useProjects({ limit: 1 });
+  const { data: projects, isLoading } = useProjects();
 
   if (isLoading) {
     return (
@@ -16,7 +16,7 @@ export function FeaturedProject() {
     );
   }
 
-  const project = data?.data?.[0];
+  const project = projects?.[0];
   if (!project) return null;
 
   const words = project.title.split(' ');

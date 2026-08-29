@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export function LatestPublications() {
-  const { data, isLoading } = usePublications({ limit: 5 });
+  const { data: publications, isLoading } = usePublications();
 
   if (isLoading) {
     return (
@@ -19,7 +19,7 @@ export function LatestPublications() {
     );
   }
 
-  const publications = data || [];
+  const pubs = publications || [];
 
   return (
     <section className="py-20 lg:py-32 bg-[var(--r-bg)]">
@@ -42,11 +42,11 @@ export function LatestPublications() {
           </Link>
         </div>
 
-        {publications.length === 0 ? (
+        {pubs.length === 0 ? (
           <p className="text-[var(--r-text-secondary)]">No publications available yet.</p>
         ) : (
           <div>
-            {publications.map((pub) => (
+            {pubs.map((pub) => (
               <div
                 key={pub.id}
                 className="flex items-start justify-between gap-6 py-6 border-b border-[var(--r-border)]"

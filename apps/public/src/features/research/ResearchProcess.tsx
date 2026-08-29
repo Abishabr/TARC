@@ -1,11 +1,4 @@
-import {
-  CheckCircle,
-  FileText,
-  Lightbulb,
-  Microscope,
-  Search,
-  TrendingUp,
-} from 'lucide-react';
+import { CheckCircle, FileText, Lightbulb, Microscope, Search, TrendingUp } from 'lucide-react';
 
 const STEPS = [
   { icon: Search, label: 'Field', word: 'Observe' },

@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
-import { ResearchPage } from './ResearchPage';
 import { ResearchDetailPage } from './ResearchDetailPage';
+import { ResearchPage } from './ResearchPage';
 
 export function ResearchRoutes() {
   return (

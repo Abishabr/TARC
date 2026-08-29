@@ -1,12 +1,12 @@
 .research-page {
-  --r-bg: #F5F5F0;
+  --r-bg: #f5f5f0;
   --r-dark: #101712;
-  --r-forest: #173B2B;
-  --r-secondary: #315B43;
-  --r-accent: #B58B45;
+  --r-forest: #173b2b;
+  --r-secondary: #315b43;
+  --r-accent: #b58b45;
   --r-text: #111511;
-  --r-text-secondary: #6B716C;
-  --r-border: #DDDFDA;
+  --r-text-secondary: #6b716c;
+  --r-border: #dddfda;
 
   background-color: var(--r-bg);
   color: var(--r-text);

@@ -1,12 +1,12 @@
 import { useEffect } from 'react';
-import { ResearchHero } from './ResearchHero';
-import { ResearchPrograms } from './ResearchPrograms';
 import { FeaturedProject } from './FeaturedProject';
-import { ProjectArchive } from './ProjectArchive';
-import { ResearchProcess } from './ResearchProcess';
-import { LatestPublications } from './LatestPublications';
 import { FieldImageSection } from './FieldImageSection';
+import { LatestPublications } from './LatestPublications';
+import { ProjectArchive } from './ProjectArchive';
 import { ResearchCTA } from './ResearchCTA';
+import { ResearchHero } from './ResearchHero';
+import { ResearchProcess } from './ResearchProcess';
+import { ResearchPrograms } from './ResearchPrograms';
 
 export function ResearchPage() {
   useEffect(() => {

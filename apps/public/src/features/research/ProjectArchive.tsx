@@ -3,7 +3,7 @@ import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 export function ProjectArchive() {
-  const { data, isLoading } = useProjects({ limit: 6 });
+  const { data: projects, isLoading } = useProjects();
 
   if (isLoading) {
     return (
@@ -19,9 +19,9 @@ export function ProjectArchive() {
     );
   }
 
-  const projects = data?.data || [];
+  const projectsList = projects || [];
 
-  if (projects.length === 0) {
+  if (projectsList.length === 0) {
     return (
       <section className="py-20 lg:py-32 bg-[var(--r-bg)]">
         <div className="mx-auto max-w-[1440px] px-6 lg:px-16 text-center">
@@ -53,7 +53,7 @@ export function ProjectArchive() {
         </div>
 
         <div>
-          {projects.map((project, index) => {
+          {projectsList.map((project, index) => {
             const num = String(index + 1).padStart(2, '0');
             return (
               <div

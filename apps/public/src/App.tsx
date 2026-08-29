@@ -1,9 +1,6 @@
-/**
- * @file apps/public/src/App.tsx
- * @description Main application root for the TARCMS Public Institutional Portal.
- * Provides routing and layout for all public pages.
- */
-
+import { NotFoundPage } from '@/components/NotFoundPage';
+import { PublicFooter } from '@/components/navigation/PublicFooter';
+import { PublicHeader } from '@/components/navigation/PublicHeader';
 import { PublicAboutPage } from '@/features/about/PublicAboutPage';
 import { PublicContactPage } from '@/features/contact/PublicContactPage';
 import { PublicDirectorPage } from '@/features/director/PublicDirectorPage';
@@ -13,54 +10,31 @@ import { PublicHomePage } from '@/features/home/PublicHomePage';
 import { PublicNewsPage } from '@/features/news/PublicNewsPage';
 import { PublicPublicationsPage } from '@/features/publications/PublicPublicationsPage';
 import { PublicResearchPage } from '@/features/research/PublicResearchPage';
-import { PublicLayout } from '@/layouts/PublicLayout';
-import { useEffect, useState } from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
-function useHashRoute() {
-  const [path, setPath] = useState(window.location.hash.slice(1) || '/');
-
-  useEffect(() => {
-    const handleHashChange = () => {
-      setPath(window.location.hash.slice(1) || '/');
-    };
-    window.addEventListener('hashchange', handleHashChange);
-    return () => window.removeEventListener('hashchange', handleHashChange);
-  }, []);
-
-  return path;
-}
-
-/**
- * Root Public Application Component.
- * Uses hash-based routing for static deployment.
- */
 export function App(): React.ReactElement {
-  const path = useHashRoute();
-
-  const renderPage = () => {
-    switch (path) {
-      case '/about':
-        return <PublicAboutPage />;
-      case '/director':
-        return <PublicDirectorPage />;
-      case '/news':
-        return <PublicNewsPage />;
-      case '/publications':
-        return <PublicPublicationsPage />;
-      case '/research':
-        return <PublicResearchPage />;
-      case '/events':
-        return <PublicEventsPage />;
-      case '/gallery':
-        return <PublicGalleryPage />;
-      case '/contact':
-        return <PublicContactPage />;
-      default:
-        return <PublicHomePage />;
-    }
-  };
-
-  return <PublicLayout>{renderPage()}</PublicLayout>;
+  return (
+    <BrowserRouter>
+      <div className="min-h-screen flex flex-col bg-background font-sans text-foreground">
+        <PublicHeader />
+        <main className="flex-1">
+          <Routes>
+            <Route path="/" element={<PublicHomePage />} />
+            <Route path="/research" element={<PublicResearchPage />} />
+            <Route path="/publications" element={<PublicPublicationsPage />} />
+            <Route path="/news" element={<PublicNewsPage />} />
+            <Route path="/events" element={<PublicEventsPage />} />
+            <Route path="/about" element={<PublicAboutPage />} />
+            <Route path="/director" element={<PublicDirectorPage />} />
+            <Route path="/gallery" element={<PublicGalleryPage />} />
+            <Route path="/contact" element={<PublicContactPage />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </main>
+        <PublicFooter />
+      </div>
+    </BrowserRouter>
+  );
 }
 
 export default App;

@@ -1,4 +1,4 @@
-import { BookOpen, CalendarClock, FlaskConical, Users } from 'lucide-react';
+import { BookOpen, FlaskConical, Users } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 
 function useCountUp(target: number, duration = 2000): number {
@@ -48,16 +48,14 @@ function StatItem({ icon: Icon, value, suffix, label }: StatItemProps) {
   const count = useCountUp(value);
 
   return (
-    <div className="flex items-center gap-4 px-6 py-6">
-      <div className="h-12 w-12 rounded-full bg-white/20 flex items-center justify-center flex-shrink-0">
-        <Icon className="h-6 w-6 text-white" />
+    <div ref={undefined} className="flex flex-col items-center text-center px-6 py-8">
+      <Icon className="h-5 w-5 text-primary mb-4" />
+      <div className="font-heading text-[40px] lg:text-[48px] font-bold text-foreground leading-none">
+        {count}
+        <span className="text-primary">{suffix}</span>
       </div>
-      <div>
-        <div className="text-3xl font-bold text-white">
-          {count}
-          <span className="text-white/80">{suffix}</span>
-        </div>
-        <div className="text-xs font-semibold text-white/70 tracking-widest uppercase">{label}</div>
+      <div className="mt-2 text-[11px] font-semibold text-muted-foreground tracking-[0.15em] uppercase">
+        {label}
       </div>
     </div>
   );
@@ -67,14 +65,13 @@ const STATS = [
   { icon: FlaskConical, value: 45, suffix: '+', label: 'Research Projects' },
   { icon: Users, value: 30, suffix: '+', label: 'Staff Members' },
   { icon: BookOpen, value: 120, suffix: '+', label: 'Publications' },
-  { icon: CalendarClock, value: 25, suffix: '+', label: 'Years of Service' },
 ];
 
 export function StatsSection() {
   return (
-    <section className="bg-primary">
-      <div className="max-w-[1440px] mx-auto px-6">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 divide-y sm:divide-y-0 sm:divide-x divide-white/20">
+    <section className="border-y border-border">
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-16">
+        <div className="grid grid-cols-1 sm:grid-cols-3 divide-y sm:divide-y-0 sm:divide-x divide-border">
           {STATS.map((stat) => (
             <StatItem key={stat.label} {...stat} />
           ))}

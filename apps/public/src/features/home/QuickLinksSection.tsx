@@ -1,22 +1,18 @@
-import { FlaskConical, Mail, Users } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const LINKS = [
   {
-    icon: FlaskConical,
     title: 'Research Programs',
-    description:
-      'Explore our ongoing research initiatives in agriculture, horticulture, and plant pathology.',
+    description: 'Explore our ongoing research initiatives in agriculture, horticulture, and plant pathology.',
     href: '/research',
   },
   {
-    icon: Users,
     title: 'Our Team',
     description: 'Meet the dedicated scientists and staff driving innovation at TARC.',
     href: '/about',
   },
   {
-    icon: Mail,
     title: 'Get in Touch',
     description: 'Have questions or want to collaborate? Reach out to our team.',
     href: '/contact',
@@ -25,29 +21,32 @@ const LINKS = [
 
 export function QuickLinksSection() {
   return (
-    <section className="py-16 px-6 bg-muted/30">
-      <div className="max-w-[1440px] mx-auto">
-        <div className="text-center mb-10">
-          <p className="text-xs font-semibold text-muted-foreground tracking-[0.2em] uppercase mb-2">
-            ── Navigate
+    <section className="py-20 lg:py-28 bg-[#101712] text-white">
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-16">
+        <div className="mb-12">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-white/40 mb-4">
+            Navigate
           </p>
-          <h2 className="text-3xl md:text-4xl text-foreground font-heading">How Can We Help?</h2>
+          <h2 className="font-heading text-[32px] lg:text-[48px] font-bold leading-[1.05]">
+            How Can We Help?
+          </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-white/10">
           {LINKS.map((link) => (
             <Link
               key={link.href}
               to={link.href}
-              className="group border border-border rounded-lg p-6 bg-card hover:shadow-md transition-all hover:border-primary/30"
+              className="group bg-[#101712] p-8 lg:p-10 hover:bg-white/5 transition-colors"
             >
-              <div className="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
-                <link.icon className="h-6 w-6 text-primary" />
-              </div>
-              <h3 className="text-lg font-semibold text-foreground mb-2 group-hover:text-primary transition-colors">
+              <h3 className="text-[18px] font-semibold mb-3 group-hover:text-[#B58B45] transition-colors">
                 {link.title}
               </h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">{link.description}</p>
+              <p className="text-sm text-white/50 leading-relaxed mb-6">{link.description}</p>
+              <span className="inline-flex items-center gap-2 text-[12px] font-semibold uppercase tracking-widest text-white/40 group-hover:text-white transition-colors">
+                Learn More
+                <ArrowRight className="h-3 w-3 group-hover:translate-x-1 transition-transform" />
+              </span>
             </Link>
           ))}
         </div>

@@ -1,98 +1,104 @@
 import { usePublications } from '@/api/hooks/usePublications';
-import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
-import { ArrowRight, FileText } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-
-function PublicationCardSkeleton() {
-  return (
-    <div className="border border-border rounded-lg p-5 bg-card space-y-3">
-      <Skeleton className="h-5 w-16" />
-      <Skeleton className="h-6 w-3/4" />
-      <Skeleton className="h-4 w-full" />
-      <Skeleton className="h-4 w-2/3" />
-      <Skeleton className="h-3 w-24" />
-    </div>
-  );
-}
 
 export function FeaturedPublicationSection() {
   const { data: publications, isLoading } = usePublications();
 
-  const items = (publications || []).slice(0, 3);
+  const items = (publications || []).slice(0, 4);
 
   return (
-    <section className="py-16 px-6">
-      <div className="max-w-[1440px] mx-auto">
-        <div className="flex items-center justify-between mb-10">
+    <section className="py-20 lg:py-28">
+      <div className="max-w-[1440px] mx-auto px-6 lg:px-16">
+        <div className="flex items-end justify-between mb-12">
           <div>
-            <p className="text-xs font-semibold text-muted-foreground tracking-[0.2em] uppercase mb-2">
-              ── Our Contributions
+            <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-4">
+              Our Contributions
             </p>
-            <h2 className="text-3xl md:text-4xl text-foreground font-heading">
+            <h2 className="font-heading text-[32px] lg:text-[48px] font-bold text-foreground leading-[1.05]">
               Featured Publications
             </h2>
           </div>
-          <Button
-            variant="outline"
-            className="text-xs font-semibold tracking-wide uppercase"
-            render={<Link to="/publications" />}
+          <Link
+            to="/publications"
+            className="hidden sm:flex items-center gap-2 text-[13px] font-medium uppercase tracking-widest text-primary hover:text-primary/80 transition-colors"
           >
-            View All Publications
-            <ArrowRight className="ml-2 h-3.5 w-3.5" />
-          </Button>
+            All Publications
+            <ArrowRight className="h-4 w-4" />
+          </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {isLoading ? (
-            Array.from({ length: 3 }).map((_, i) => <PublicationCardSkeleton key={i} />)
-          ) : items.length === 0 ? (
-            <div className="col-span-full py-12 text-center text-muted-foreground text-sm">
-              No publications available.
-            </div>
-          ) : (
-            items.map((pub) => (
+        {isLoading ? (
+          <div className="space-y-0 divide-y divide-border border-t border-border">
+            {Array.from({ length: 3 }).map((_, i) => (
+              <div key={i} className="py-6">
+                <Skeleton className="h-4 w-20 mb-3" />
+                <Skeleton className="h-6 w-3/4 mb-2" />
+                <Skeleton className="h-4 w-1/2" />
+              </div>
+            ))}
+          </div>
+        ) : items.length === 0 ? (
+          <p className="text-muted-foreground py-12">No publications available.</p>
+        ) : (
+          <div>
+            {items.map((pub) => (
               <div
                 key={pub.id}
-                className="border border-border rounded-lg p-5 bg-card hover:shadow-md transition-shadow space-y-3"
+                className="flex flex-col sm:flex-row sm:items-start gap-4 sm:gap-8 py-6 border-t border-border"
               >
-                {pub.publicationType && (
-                  <Badge variant="secondary" className="text-[10px] uppercase tracking-wider">
-                    {pub.publicationType}
-                  </Badge>
-                )}
-                <h3 className="text-lg font-semibold text-foreground line-clamp-2 leading-snug">
-                  {pub.title}
-                </h3>
-                {pub.authors && (
-                  <p className="text-xs text-muted-foreground line-clamp-1">
-                    {Array.isArray(pub.authors) ? pub.authors.join(', ') : pub.authors}
-                  </p>
-                )}
-                {pub.abstract && (
-                  <p className="text-sm text-muted-foreground line-clamp-3">{pub.abstract}</p>
-                )}
-                <div className="flex items-center justify-between pt-3 border-t border-border">
-                  <span className="flex items-center gap-1.5 text-xs text-muted-foreground">
-                    <FileText className="h-3 w-3" />
-                    {pub.publicationYear || 'N/A'}
+                <div className="sm:w-32 flex-shrink-0">
+                  <span className="text-[11px] font-semibold uppercase tracking-[0.15em] text-primary">
+                    {pub.publicationYear}
                   </span>
-                  {pub.doiUrl && (
-                    <a
-                      href={`https://doi.org/${pub.doiUrl}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="text-xs font-semibold text-primary hover:underline uppercase tracking-wide"
-                    >
-                      DOI Link
-                    </a>
+                </div>
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-[18px] lg:text-[22px] font-semibold text-foreground leading-snug">
+                    {pub.title}
+                  </h3>
+                  <div className="mt-2 flex items-center gap-3 text-[12px] text-muted-foreground">
+                    {pub.authors && (
+                      <span>
+                        {Array.isArray(pub.authors) ? pub.authors.slice(0, 3).join(', ') : pub.authors}
+                      </span>
+                    )}
+                    {pub.publicationType && (
+                      <>
+                        <span className="text-border">&middot;</span>
+                        <span className="uppercase tracking-widest">{pub.publicationType}</span>
+                      </>
+                    )}
+                  </div>
+                  {pub.abstract && (
+                    <p className="mt-2 text-sm text-muted-foreground line-clamp-2 max-w-2xl">
+                      {pub.abstract}
+                    </p>
                   )}
                 </div>
+                {pub.doiUrl && (
+                  <a
+                    href={`https://doi.org/${pub.doiUrl}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hidden sm:flex items-center gap-1 text-[12px] font-medium uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors flex-shrink-0 self-center"
+                  >
+                    DOI
+                    <ArrowRight className="h-3 w-3" />
+                  </a>
+                )}
               </div>
-            ))
-          )}
-        </div>
+            ))}
+          </div>
+        )}
+
+        <Link
+          to="/publications"
+          className="sm:hidden flex items-center justify-center gap-2 mt-8 text-[13px] font-medium uppercase tracking-widest text-primary"
+        >
+          View All Publications
+          <ArrowRight className="h-4 w-4" />
+        </Link>
       </div>
     </section>
   );

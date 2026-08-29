@@ -33,7 +33,9 @@ export function PublicPublicationsPage() {
       <section className="py-20 lg:py-32">
         <div className="max-w-[1440px] mx-auto px-6 lg:px-16">
           <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-4">
-            <Link to="/" className="hover:text-foreground transition-colors">Home</Link>
+            <Link to="/" className="hover:text-foreground transition-colors">
+              Home
+            </Link>
             <span className="mx-2">/</span>
             <span className="text-foreground">Publications</span>
           </p>
@@ -67,7 +69,9 @@ export function PublicPublicationsPage() {
             >
               <option value="">All Years</option>
               {years.map((y) => (
-                <option key={y} value={y}>{y}</option>
+                <option key={y} value={y}>
+                  {y}
+                </option>
               ))}
             </select>
             <select
@@ -77,7 +81,9 @@ export function PublicPublicationsPage() {
             >
               <option value="">All Types</option>
               {types.map((t) => (
-                <option key={t} value={t}>{t}</option>
+                <option key={t} value={t}>
+                  {t}
+                </option>
               ))}
             </select>
           </div>
@@ -118,7 +124,9 @@ export function PublicPublicationsPage() {
                     <div className="mt-2 flex items-center gap-3 text-[12px] text-muted-foreground">
                       {pub.authors && (
                         <span>
-                          {Array.isArray(pub.authors) ? pub.authors.slice(0, 3).join(', ') : pub.authors}
+                          {Array.isArray(pub.authors)
+                            ? pub.authors.slice(0, 3).join(', ')
+                            : pub.authors}
                         </span>
                       )}
                       {pub.publicationType && (

@@ -32,7 +32,9 @@ export function NewsListPage() {
       <section className="py-20 lg:py-32">
         <div className="max-w-[1440px] mx-auto px-6 lg:px-16">
           <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-4">
-            <Link to="/" className="hover:text-foreground transition-colors">Home</Link>
+            <Link to="/" className="hover:text-foreground transition-colors">
+              Home
+            </Link>
             <span className="mx-2">/</span>
             <span className="text-foreground">News</span>
           </p>

@@ -25,7 +25,9 @@ export function AboutOverviewPage() {
       <section className="py-20 lg:py-32">
         <div className="max-w-[1440px] mx-auto px-6 lg:px-16">
           <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-4">
-            <Link to="/" className="hover:text-foreground transition-colors">Home</Link>
+            <Link to="/" className="hover:text-foreground transition-colors">
+              Home
+            </Link>
             <span className="mx-2">/</span>
             <span className="text-foreground">About Us</span>
           </p>
@@ -44,21 +46,27 @@ export function AboutOverviewPage() {
         <div className="max-w-[1440px] mx-auto px-6 lg:px-16">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-px bg-border">
             <div className="bg-muted/30 p-8 lg:p-12">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary mb-6">Our Vision</p>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary mb-6">
+                Our Vision
+              </p>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 {settings?.visionText ||
                   'To be a center of excellence in agricultural research, contributing to the transformation of Ethiopian agriculture through innovative technologies, skilled human resources, and strategic partnerships.'}
               </p>
             </div>
             <div className="bg-muted/30 p-8 lg:p-12">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary mb-6">Our Mission</p>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary mb-6">
+                Our Mission
+              </p>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 {settings?.missionText ||
                   'To conduct innovative agricultural research and development in spices, coffee, and horticulture, providing improved technologies and knowledge for food security and economic growth in Southwest Ethiopia.'}
               </p>
             </div>
             <div className="bg-muted/30 p-8 lg:p-12">
-              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary mb-6">Our Mandate</p>
+              <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-primary mb-6">
+                Our Mandate
+              </p>
               <p className="text-sm text-muted-foreground leading-relaxed">
                 {settings?.aboutText ||
                   'TARC is mandated to conduct research in spice crops, coffee, horticultural crops, plant genetic resource conservation, and farmer extension and technology dissemination.'}
@@ -80,8 +88,16 @@ export function AboutOverviewPage() {
 
           <div className="divide-y divide-border border-t border-border">
             {[
-              { to: '/about/director', label: "Director's Message", desc: 'Welcome from our leadership' },
-              { to: '/about/departments', label: 'Our Departments', desc: 'Research divisions and teams' },
+              {
+                to: '/about/director',
+                label: "Director's Message",
+                desc: 'Welcome from our leadership',
+              },
+              {
+                to: '/about/departments',
+                label: 'Our Departments',
+                desc: 'Research divisions and teams',
+              },
               { to: '/about/people', label: 'Meet Our Team', desc: 'Researchers and staff' },
             ].map((link) => (
               <Link

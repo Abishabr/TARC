@@ -35,7 +35,9 @@ export function PublicGalleryPage() {
       <section className="py-20 lg:py-32">
         <div className="max-w-[1440px] mx-auto px-6 lg:px-16">
           <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-4">
-            <Link to="/" className="hover:text-foreground transition-colors">Home</Link>
+            <Link to="/" className="hover:text-foreground transition-colors">
+              Home
+            </Link>
             <span className="mx-2">/</span>
             <span className="text-foreground">Gallery</span>
           </p>
@@ -90,7 +92,11 @@ export function PublicGalleryPage() {
                   onClick={() => setLightboxItem(item)}
                   className="group relative aspect-square overflow-hidden hover:opacity-90 transition-opacity"
                 >
-                  <PlaceholderImage label={item.title} aspectRatio="square" className="w-full h-full" />
+                  <PlaceholderImage
+                    label={item.title}
+                    aspectRatio="square"
+                    className="w-full h-full"
+                  />
                   <div className="absolute inset-0 bg-black/0 group-hover:bg-black/40 transition-colors flex items-end p-4">
                     <span className="text-sm font-medium text-white opacity-0 group-hover:opacity-100 transition-opacity">
                       {item.title}
@@ -105,12 +111,14 @@ export function PublicGalleryPage() {
 
       {/* Lightbox */}
       {lightboxItem && (
-        <div
-          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4"
-          onClick={() => setLightboxItem(null)}
+        <dialog
+          open
+          className="fixed inset-0 z-50 bg-black/90 flex items-center justify-center p-4 backdrop:bg-black/90"
+          onClose={() => setLightboxItem(null)}
+          onClick={(e) => {
+            if (e.target === e.currentTarget) setLightboxItem(null);
+          }}
           onKeyDown={(e) => e.key === 'Escape' && setLightboxItem(null)}
-          tabIndex={-1}
-          role="dialog"
           aria-label="Image lightbox"
         >
           <button
@@ -134,7 +142,7 @@ export function PublicGalleryPage() {
               )}
             </div>
           </div>
-        </div>
+        </dialog>
       )}
     </div>
   );

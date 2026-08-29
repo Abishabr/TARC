@@ -47,9 +47,13 @@ export function NewsDetailPage() {
       <section className="py-20 lg:py-32">
         <div className="max-w-[1440px] mx-auto px-6 lg:px-16">
           <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-4">
-            <Link to="/" className="hover:text-foreground transition-colors">Home</Link>
+            <Link to="/" className="hover:text-foreground transition-colors">
+              Home
+            </Link>
             <span className="mx-2">/</span>
-            <Link to="/news" className="hover:text-foreground transition-colors">News</Link>
+            <Link to="/news" className="hover:text-foreground transition-colors">
+              News
+            </Link>
             <span className="mx-2">/</span>
             <span className="text-foreground line-clamp-1">{article.title}</span>
           </p>
@@ -69,7 +73,10 @@ export function NewsDetailPage() {
                 day: 'numeric',
               })}
             </span>
-            <button type="button" className="flex items-center gap-1.5 hover:text-primary transition-colors">
+            <button
+              type="button"
+              className="flex items-center gap-1.5 hover:text-primary transition-colors"
+            >
               <Share2 className="h-3.5 w-3.5" /> Share
             </button>
           </div>
@@ -97,11 +104,7 @@ export function NewsDetailPage() {
               </p>
               <div className="space-y-0 divide-y divide-border border-t border-border">
                 {relatedNews.map((n) => (
-                  <Link
-                    key={n.id}
-                    to={`/news/${n.slug}`}
-                    className="group block py-5"
-                  >
+                  <Link key={n.id} to={`/news/${n.slug}`} className="group block py-5">
                     <h4 className="text-[15px] font-semibold text-foreground group-hover:text-primary transition-colors leading-snug">
                       {n.title}
                     </h4>

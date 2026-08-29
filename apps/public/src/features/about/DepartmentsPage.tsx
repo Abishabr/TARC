@@ -27,9 +27,13 @@ export function DepartmentsPage() {
       <section className="py-20 lg:py-32">
         <div className="max-w-[1440px] mx-auto px-6 lg:px-16">
           <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-4">
-            <Link to="/" className="hover:text-foreground transition-colors">Home</Link>
+            <Link to="/" className="hover:text-foreground transition-colors">
+              Home
+            </Link>
             <span className="mx-2">/</span>
-            <Link to="/about" className="hover:text-foreground transition-colors">About</Link>
+            <Link to="/about" className="hover:text-foreground transition-colors">
+              About
+            </Link>
             <span className="mx-2">/</span>
             <span className="text-foreground">Departments</span>
           </p>
@@ -50,7 +54,10 @@ export function DepartmentsPage() {
           ) : (
             <div className="divide-y divide-border border-t border-border">
               {deptList.map((dept) => (
-                <div key={dept.id} className="group flex flex-col sm:flex-row sm:items-start gap-6 py-8">
+                <div
+                  key={dept.id}
+                  className="group flex flex-col sm:flex-row sm:items-start gap-6 py-8"
+                >
                   <div className="sm:w-48 flex-shrink-0">
                     {dept.establishedYear && (
                       <p className="text-[11px] font-semibold uppercase tracking-[0.15em] text-muted-foreground">

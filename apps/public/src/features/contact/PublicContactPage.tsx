@@ -57,7 +57,9 @@ export function PublicContactPage() {
       <section className="py-20 lg:py-32">
         <div className="max-w-[1440px] mx-auto px-6 lg:px-16">
           <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-4">
-            <Link to="/" className="hover:text-foreground transition-colors">Home</Link>
+            <Link to="/" className="hover:text-foreground transition-colors">
+              Home
+            </Link>
             <span className="mx-2">/</span>
             <span className="text-foreground">Contact</span>
           </p>
@@ -95,7 +97,10 @@ export function PublicContactPage() {
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="name" className="block text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-2">
+                      <label
+                        htmlFor="name"
+                        className="block text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-2"
+                      >
                         Name *
                       </label>
                       <input
@@ -109,7 +114,10 @@ export function PublicContactPage() {
                       />
                     </div>
                     <div>
-                      <label htmlFor="email" className="block text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-2">
+                      <label
+                        htmlFor="email"
+                        className="block text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-2"
+                      >
                         Email *
                       </label>
                       <input
@@ -125,7 +133,10 @@ export function PublicContactPage() {
                     </div>
                   </div>
                   <div>
-                    <label htmlFor="subject" className="block text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-2">
+                    <label
+                      htmlFor="subject"
+                      className="block text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-2"
+                    >
                       Subject *
                     </label>
                     <input
@@ -139,7 +150,10 @@ export function PublicContactPage() {
                     />
                   </div>
                   <div>
-                    <label htmlFor="message" className="block text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-2">
+                    <label
+                      htmlFor="message"
+                      className="block text-[11px] font-semibold uppercase tracking-[0.2em] text-muted-foreground mb-2"
+                    >
                       Message *
                     </label>
                     <textarea
@@ -162,7 +176,8 @@ export function PublicContactPage() {
                   </button>
                   <p className="text-xs text-muted-foreground">
                     Your message will be reviewed by authorized Center personnel and used solely to
-                    respond to your inquiry. We do not share personal information with third parties.
+                    respond to your inquiry. We do not share personal information with third
+                    parties.
                   </p>
                 </form>
               )}
@@ -179,7 +194,9 @@ export function PublicContactPage() {
                     <div className="flex items-start gap-4">
                       <Phone className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
                       <div>
-                        <p className="text-[11px] font-semibold uppercase tracking-widest text-muted-foreground mb-1">Phone</p>
+                        <p className="text-[11px] font-semibold uppercase tracking-widest text-muted-foreground mb-1">
+                          Phone
+                        </p>
                         <p className="text-sm">{settings.officialPhone}</p>
                       </div>
                     </div>
@@ -188,7 +205,9 @@ export function PublicContactPage() {
                     <div className="flex items-start gap-4">
                       <Mail className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
                       <div>
-                        <p className="text-[11px] font-semibold uppercase tracking-widest text-muted-foreground mb-1">Email</p>
+                        <p className="text-[11px] font-semibold uppercase tracking-widest text-muted-foreground mb-1">
+                          Email
+                        </p>
                         <p className="text-sm">{settings.officialEmail}</p>
                       </div>
                     </div>
@@ -197,7 +216,9 @@ export function PublicContactPage() {
                     <div className="flex items-start gap-4">
                       <MapPin className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
                       <div>
-                        <p className="text-[11px] font-semibold uppercase tracking-widest text-muted-foreground mb-1">Address</p>
+                        <p className="text-[11px] font-semibold uppercase tracking-widest text-muted-foreground mb-1">
+                          Address
+                        </p>
                         <p className="text-sm">{settings.physicalAddress}</p>
                       </div>
                     </div>
@@ -205,18 +226,16 @@ export function PublicContactPage() {
                   <div className="flex items-start gap-4">
                     <Clock className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
                     <div>
-                      <p className="text-[11px] font-semibold uppercase tracking-widest text-muted-foreground mb-1">Office Hours</p>
+                      <p className="text-[11px] font-semibold uppercase tracking-widest text-muted-foreground mb-1">
+                        Office Hours
+                      </p>
                       <p className="text-sm">Monday – Friday, 8:00 AM – 5:00 PM</p>
                     </div>
                   </div>
                 </div>
               </div>
 
-              <PlaceholderImage
-                label="Map Location"
-                aspectRatio="video"
-                className="w-full"
-              />
+              <PlaceholderImage label="Map Location" aspectRatio="video" className="w-full" />
             </div>
           </div>
         </div>

@@ -1,15 +1,16 @@
 import { NotFoundPage } from '@/components/NotFoundPage';
 import { PublicFooter } from '@/components/navigation/PublicFooter';
 import { PublicHeader } from '@/components/navigation/PublicHeader';
-import { PublicAboutPage } from '@/features/about/PublicAboutPage';
+import { AboutRoutes } from '@/features/about/AboutRoutes';
 import { PublicContactPage } from '@/features/contact/PublicContactPage';
-import { PublicDirectorPage } from '@/features/director/PublicDirectorPage';
 import { PublicEventsPage } from '@/features/events/PublicEventsPage';
 import { PublicGalleryPage } from '@/features/gallery/PublicGalleryPage';
 import { PublicHomePage } from '@/features/home/PublicHomePage';
-import { PublicNewsPage } from '@/features/news/PublicNewsPage';
+import { NewsRoutes } from '@/features/news/NewsRoutes';
 import { PublicPublicationsPage } from '@/features/publications/PublicPublicationsPage';
-import { PublicResearchPage } from '@/features/research/PublicResearchPage';
+import { ProjectsPage } from '@/features/research/ProjectsPage';
+import { ResearchRoutes } from '@/features/research/ResearchRoutes';
+import { SearchPage } from '@/features/search/SearchPage';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 export function App(): React.ReactElement {
@@ -20,14 +21,15 @@ export function App(): React.ReactElement {
         <main className="flex-1">
           <Routes>
             <Route path="/" element={<PublicHomePage />} />
-            <Route path="/research" element={<PublicResearchPage />} />
+            <Route path="/research/*" element={<ResearchRoutes />} />
+            <Route path="/projects" element={<ProjectsPage />} />
             <Route path="/publications" element={<PublicPublicationsPage />} />
-            <Route path="/news" element={<PublicNewsPage />} />
+            <Route path="/news/*" element={<NewsRoutes />} />
             <Route path="/events" element={<PublicEventsPage />} />
-            <Route path="/about" element={<PublicAboutPage />} />
-            <Route path="/director" element={<PublicDirectorPage />} />
+            <Route path="/about/*" element={<AboutRoutes />} />
             <Route path="/gallery" element={<PublicGalleryPage />} />
             <Route path="/contact" element={<PublicContactPage />} />
+            <Route path="/search" element={<SearchPage />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>

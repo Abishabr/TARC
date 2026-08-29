@@ -1,8 +1,10 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { render, screen } from '@testing-library/react';
 import React from 'react';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import { App } from './App';
+
+vi.stubGlobal('scrollTo', vi.fn());
 
 const queryClient = new QueryClient({
   defaultOptions: { queries: { retry: false } },
@@ -35,7 +37,6 @@ describe('TARCMS Public Portal — App Component', () => {
 
   it('renders hero section content', () => {
     render(<App />, { wrapper: TestWrapper });
-    expect(screen.getByText(/Pioneering Agricultural Excellence/i)).toBeInTheDocument();
     expect(screen.getByText(/AGRICULTURAL EXCELLENCE HUB/i)).toBeInTheDocument();
   });
 

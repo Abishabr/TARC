@@ -1,7 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
+import type { NewsItem } from './useNews';
 
 export function useNewsBySlug(slug: string) {
-  return useQuery({
+  return useQuery<NewsItem | null>({
     queryKey: ['news', slug],
     enabled: !!slug,
     queryFn: async () => {

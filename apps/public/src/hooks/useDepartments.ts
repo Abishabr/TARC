@@ -1,7 +1,19 @@
 import { useQuery } from '@tanstack/react-query';
 
+export interface Department {
+  id: string;
+  name: string;
+  slug?: string;
+  description?: string | null;
+  objectives?: string[];
+  head?: string;
+  email?: string;
+  phone?: string;
+  establishedYear?: number | null;
+}
+
 export function useDepartments() {
-  return useQuery({
+  return useQuery<Department[]>({
     queryKey: ['departments'],
     queryFn: async () => {
       const res = await fetch('/api/v1/departments');

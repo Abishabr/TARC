@@ -4,14 +4,23 @@
  * Verifies login page, admin sidebar navigation, and KPI metric cards.
  */
 
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { App } from './App';
 
+const queryClient = new QueryClient({
+  defaultOptions: { queries: { retry: false } },
+});
+
 function renderWithRouter(ui: React.ReactElement) {
-  return render(<BrowserRouter>{ui}</BrowserRouter>);
+  return render(
+    <QueryClientProvider client={queryClient}>
+      <BrowserRouter>{ui}</BrowserRouter>
+    </QueryClientProvider>
+  );
 }
 
 describe('TARCMS Dashboard — App Component', () => {
@@ -70,7 +79,7 @@ describe('TARCMS Dashboard — App Component', () => {
     // Wait for dashboard to appear - look for "Dashboard" title
     await waitFor(
       () => {
-        expect(screen.getByText('Dashboard')).toBeInTheDocument();
+        expect(screen.getAllByText('Dashboard').length).toBeGreaterThan(0);
       },
       { timeout: 3000 }
     );

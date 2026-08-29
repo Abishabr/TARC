@@ -15,7 +15,7 @@ import { AdminSettingsPage } from '@/features/settings/AdminSettingsPage';
 import { AdminStaffPage } from '@/features/staff/AdminStaffPage';
 import { AdminVehiclesPage } from '@/features/vehicles/AdminVehiclesPage';
 import { useEffect, useState } from 'react';
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 interface User {
   id: string;
@@ -57,6 +57,7 @@ function Dashboard({ user, onLogout }: DashboardProps) {
         <Route path="/dashboard/messages" element={<AdminMessagesPage />} />
         <Route path="/dashboard/settings" element={<AdminSettingsPage />} />
         <Route path="/dashboard/profile" element={<AdminProfilePage />} />
+        <Route path="/" element={<Navigate to="/dashboard" replace />} />
         <Route path="*" element={<Placeholder title="Page Not Found" />} />
       </Route>
     </Routes>

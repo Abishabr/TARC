@@ -31,12 +31,8 @@ describe('TARCMS Public Portal — App Component', () => {
 
   it('renders agricultural headline and mission description', () => {
     render(<App />, { wrapper: TestWrapper });
-    expect(
-      screen.getByText(/Pioneering Agricultural Excellence/i)
-    ).toBeInTheDocument();
-    expect(
-      screen.getByText(/Advancing sustainable farming practices/i)
-    ).toBeInTheDocument();
+    expect(screen.getByText(/Pioneering Agricultural Excellence/i)).toBeInTheDocument();
+    expect(screen.getByText(/Advancing sustainable farming practices/i)).toBeInTheDocument();
   });
 
   it('renders hero section badge', () => {

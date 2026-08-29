@@ -35,23 +35,22 @@ describe('TARCMS Dashboard — App Component', () => {
 
   it('renders dashboard after successful login', async () => {
     // Mock the login API endpoint
-    const mockFetch = vi.fn()
-      .mockResolvedValueOnce({
-        ok: true,
-        json: async () => ({
-          success: true,
-          data: {
-            token: 'mock-token-123',
-            user: {
-              id: '1',
-              name: 'Dr. Girma Bekele',
-              email: 'admin@tarc.gov.et',
-              role: 'SUPER_ADMIN',
-              avatarUrl: null,
-            },
+    const mockFetch = vi.fn().mockResolvedValueOnce({
+      ok: true,
+      json: async () => ({
+        success: true,
+        data: {
+          token: 'mock-token-123',
+          user: {
+            id: '1',
+            name: 'Dr. Girma Bekele',
+            email: 'admin@tarc.gov.et',
+            role: 'SUPER_ADMIN',
+            avatarUrl: null,
           },
-        }),
-      });
+        },
+      }),
+    });
 
     vi.stubGlobal('fetch', mockFetch);
 

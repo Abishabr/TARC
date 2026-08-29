@@ -222,7 +222,11 @@ export async function seedDatabase() {
           position: 'Lead Spice Breeder',
           email: 'abebe.tadesse@tarc.gov.et',
           phone: '+251 92 234 5678',
-          areasOfExpertise: ['Black Pepper Selection', 'Ginger Micropropagation', 'Essential Oil Extraction'],
+          areasOfExpertise: [
+            'Black Pepper Selection',
+            'Ginger Micropropagation',
+            'Essential Oil Extraction',
+          ],
           bio: 'M.Sc. in Plant Genetics from Jimma University, specializing in clonal selection of Southwest Ethiopian wild cardamom populations.',
           isActive: true,
           isFeatured: true,
@@ -552,7 +556,8 @@ export async function seedDatabase() {
         {
           id: pubIds.korarima,
           projectId: projectIds.korarima,
-          title: 'Agronomic Characterization and Essential Oil Composition of Ethiopian Korarima Accessions',
+          title:
+            'Agronomic Characterization and Essential Oil Composition of Ethiopian Korarima Accessions',
           slug: 'agronomic-characterization-essential-oil-korarima',
           abstract:
             'Aframomum corrorima is an indigenous high-value spice in Ethiopia. This study evaluated twelve accessions for yield attributes and essential oil yield. Clones TAR-04 and TAR-07 demonstrated superior dry capsule yield exceeding 1.8 tons/ha with 4.8% essential oil content.',
@@ -566,7 +571,8 @@ export async function seedDatabase() {
         {
           id: pubIds.coffee,
           projectId: projectIds.coffeeShade,
-          title: 'Technical Guide for Agroforestry Shade Tree Management in Southwest Ethiopian Coffee',
+          title:
+            'Technical Guide for Agroforestry Shade Tree Management in Southwest Ethiopian Coffee',
           slug: 'technical-guide-agroforestry-shade-tree-coffee',
           abstract:
             'A practical extension manual outlining pruning regimes and density recommendations for Cordia africana, Millettia ferruginea, and Albizia gummifera in coffee agroforestry.',
@@ -579,7 +585,8 @@ export async function seedDatabase() {
         {
           id: pubIds.ginger,
           projectId: projectIds.gingerWilt,
-          title: 'First Report of Ralstonia solanacearum Causing Bacterial Wilt on Ginger in Southwest Ethiopia',
+          title:
+            'First Report of Ralstonia solanacearum Causing Bacterial Wilt on Ginger in Southwest Ethiopia',
           slug: 'first-report-bacterial-wilt-ginger-southwest-ethiopia',
           abstract:
             'This study reports the isolation and identification of Ralstonia solanacearum from wilted ginger plants in Sheka Zone, with implications for disease management.',
@@ -632,7 +639,8 @@ export async function seedDatabase() {
         },
         {
           id: pubIds.extension,
-          title: 'Adoption Rates of Improved Spice Technologies Among Smallholder Farmers in Sheka Zone',
+          title:
+            'Adoption Rates of Improved Spice Technologies Among Smallholder Farmers in Sheka Zone',
           slug: 'adoption-rates-improved-spice-technologies',
           abstract:
             'A cross-sectional survey of 450 households assessing adoption determinants of improved Korarima planting materials and organic pest management practices.',
@@ -662,18 +670,90 @@ export async function seedDatabase() {
     await db
       .insert(publicationAuthors)
       .values([
-        { id: 'pa000000-0000-0000-0000-000000000001', publicationId: pubIds.korarima, staffId: staffIds.spiceLead, authorOrder: 1, isCorresponding: true },
-        { id: 'pa000000-0000-0000-0000-000000000002', publicationId: pubIds.korarima, staffId: staffIds.director, authorOrder: 2, isCorresponding: false },
-        { id: 'pa000000-0000-0000-0000-000000000003', publicationId: pubIds.coffee, staffId: staffIds.coffeeLead, authorOrder: 1, isCorresponding: true },
-        { id: 'pa000000-0000-0000-0000-000000000004', publicationId: pubIds.ginger, staffId: staffIds.protectionLead, authorOrder: 1, isCorresponding: true },
-        { id: 'pa000000-0000-0000-0000-000000000005', publicationId: pubIds.turmeric, staffId: staffIds.researcher1, authorOrder: 1, isCorresponding: true },
-        { id: 'pa000000-0000-0000-0000-000000000006', publicationId: pubIds.turmeric, staffId: staffIds.spiceLead, authorOrder: 2, isCorresponding: false },
-        { id: 'pa000000-0000-0000-0000-000000000007', publicationId: pubIds.cbd, staffId: staffIds.protectionLead, authorOrder: 1, isCorresponding: true },
-        { id: 'pa000000-0000-0000-0000-000000000008', publicationId: pubIds.soil, staffId: staffIds.soilLead, authorOrder: 1, isCorresponding: true },
-        { id: 'pa000000-0000-0000-0000-000000000009', publicationId: pubIds.extension, staffId: staffIds.extensionLead, authorOrder: 1, isCorresponding: true },
-        { id: 'pa000000-0000-0000-0000-000000000010', publicationId: pubIds.policy, staffId: staffIds.director, authorOrder: 1, isCorresponding: true },
-        { id: 'pa000000-0000-0000-0000-000000000011', publicationId: pubIds.policy, staffId: staffIds.extensionLead, authorOrder: 2, isCorresponding: false },
-        { id: 'pa000000-0000-0000-0000-000000000012', publicationId: pubIds.coffee, staffId: staffIds.researcher2, authorOrder: 2, isCorresponding: false },
+        {
+          id: 'pa000000-0000-0000-0000-000000000001',
+          publicationId: pubIds.korarima,
+          staffId: staffIds.spiceLead,
+          authorOrder: 1,
+          isCorresponding: true,
+        },
+        {
+          id: 'pa000000-0000-0000-0000-000000000002',
+          publicationId: pubIds.korarima,
+          staffId: staffIds.director,
+          authorOrder: 2,
+          isCorresponding: false,
+        },
+        {
+          id: 'pa000000-0000-0000-0000-000000000003',
+          publicationId: pubIds.coffee,
+          staffId: staffIds.coffeeLead,
+          authorOrder: 1,
+          isCorresponding: true,
+        },
+        {
+          id: 'pa000000-0000-0000-0000-000000000004',
+          publicationId: pubIds.ginger,
+          staffId: staffIds.protectionLead,
+          authorOrder: 1,
+          isCorresponding: true,
+        },
+        {
+          id: 'pa000000-0000-0000-0000-000000000005',
+          publicationId: pubIds.turmeric,
+          staffId: staffIds.researcher1,
+          authorOrder: 1,
+          isCorresponding: true,
+        },
+        {
+          id: 'pa000000-0000-0000-0000-000000000006',
+          publicationId: pubIds.turmeric,
+          staffId: staffIds.spiceLead,
+          authorOrder: 2,
+          isCorresponding: false,
+        },
+        {
+          id: 'pa000000-0000-0000-0000-000000000007',
+          publicationId: pubIds.cbd,
+          staffId: staffIds.protectionLead,
+          authorOrder: 1,
+          isCorresponding: true,
+        },
+        {
+          id: 'pa000000-0000-0000-0000-000000000008',
+          publicationId: pubIds.soil,
+          staffId: staffIds.soilLead,
+          authorOrder: 1,
+          isCorresponding: true,
+        },
+        {
+          id: 'pa000000-0000-0000-0000-000000000009',
+          publicationId: pubIds.extension,
+          staffId: staffIds.extensionLead,
+          authorOrder: 1,
+          isCorresponding: true,
+        },
+        {
+          id: 'pa000000-0000-0000-0000-000000000010',
+          publicationId: pubIds.policy,
+          staffId: staffIds.director,
+          authorOrder: 1,
+          isCorresponding: true,
+        },
+        {
+          id: 'pa000000-0000-0000-0000-000000000011',
+          publicationId: pubIds.policy,
+          staffId: staffIds.extensionLead,
+          authorOrder: 2,
+          isCorresponding: false,
+        },
+        {
+          id: 'pa000000-0000-0000-0000-000000000012',
+          publicationId: pubIds.coffee,
+          staffId: staffIds.researcher2,
+          authorOrder: 2,
+          isCorresponding: false,
+        },
       ])
       .onDuplicateKeyUpdate({ set: { authorOrder: 1 } });
 
@@ -685,10 +765,13 @@ export async function seedDatabase() {
         {
           id: 'n0000000-0000-0000-0000-000000000001',
           authorId: userIds.superAdmin,
-          title: 'TARC Releases High-Yielding Disease-Resistant Black Pepper Variety "Tepi-Pepper-1"',
+          title:
+            'TARC Releases High-Yielding Disease-Resistant Black Pepper Variety "Tepi-Pepper-1"',
           slug: 'tarc-releases-high-yield-black-pepper-variety',
-          summary: 'After six years of participatory varietal selection, "Tepi-Pepper-1" is officially approved for wide distribution.',
-          content: 'Tepi Agricultural Research Center is proud to announce the formal release of "Tepi-Pepper-1". The variety exhibits strong resistance to Phytophthora foot rot and yields up to 3.2 tons of dried peppercorns per hectare.',
+          summary:
+            'After six years of participatory varietal selection, "Tepi-Pepper-1" is officially approved for wide distribution.',
+          content:
+            'Tepi Agricultural Research Center is proud to announce the formal release of "Tepi-Pepper-1". The variety exhibits strong resistance to Phytophthora foot rot and yields up to 3.2 tons of dried peppercorns per hectare.',
           category: 'RESEARCH_NEWS',
           isPublished: true,
           isFeatured: true,
@@ -698,8 +781,10 @@ export async function seedDatabase() {
           authorId: userIds.admin,
           title: 'TARC Hosts Regional Coffee Quality Evaluation Workshop',
           slug: 'tarc-hosts-regional-coffee-quality-workshop',
-          summary: 'Over 45 coffee quality experts gathered at TARC for a 3-day sensory evaluation workshop.',
-          content: 'The workshop brought together Q-graders from Southwest Ethiopia to calibrate cupping protocols and evaluate specialty coffee samples from Sheka and Keffa zones.',
+          summary:
+            'Over 45 coffee quality experts gathered at TARC for a 3-day sensory evaluation workshop.',
+          content:
+            'The workshop brought together Q-graders from Southwest Ethiopia to calibrate cupping protocols and evaluate specialty coffee samples from Sheka and Keffa zones.',
           category: 'EVENTS',
           isPublished: true,
           isFeatured: false,
@@ -710,7 +795,8 @@ export async function seedDatabase() {
           title: 'New Ginger Bacterial Wilt Management Guide Released for Farmers',
           slug: 'new-ginger-bacterial-wilt-guide-released',
           summary: 'A practical field guide for managing ginger bacterial wilt has been published.',
-          content: 'This guide provides smallholder farmers with step-by-step protocols for preventing and managing bacterial wilt in ginger, including resistant variety selection and soil health practices.',
+          content:
+            'This guide provides smallholder farmers with step-by-step protocols for preventing and managing bacterial wilt in ginger, including resistant variety selection and soil health practices.',
           category: 'FARMER_ADVISORY',
           isPublished: true,
           isFeatured: true,
@@ -720,8 +806,10 @@ export async function seedDatabase() {
           authorId: userIds.researcher1,
           title: 'TARC Researchers Present at International Spice Conference in India',
           slug: 'tarc-researchers-international-spice-conference',
-          summary: 'Two TARC researchers presented findings on Korarima essential oil at the Global Spice Symposium.',
-          content: 'Dr. Abebe Tadesse and Hana Girma presented their research on Ethiopian Korarima essential oil composition at the Global Spice Symposium in Kochi, India.',
+          summary:
+            'Two TARC researchers presented findings on Korarima essential oil at the Global Spice Symposium.',
+          content:
+            'Dr. Abebe Tadesse and Hana Girma presented their research on Ethiopian Korarima essential oil composition at the Global Spice Symposium in Kochi, India.',
           category: 'RESEARCH_NEWS',
           isPublished: true,
           isFeatured: false,
@@ -731,8 +819,10 @@ export async function seedDatabase() {
           authorId: userIds.admin,
           title: 'TARC Celebrates 25 Years of Agricultural Research Excellence',
           slug: 'tarc-celebrates-25-years-research',
-          summary: 'Tepi Agricultural Research Center marks a quarter century of service to Ethiopian agriculture.',
-          content: 'Founded in 2001, TARC has released 12 improved crop varieties and trained over 5,000 farmers in sustainable agricultural practices across Southwest Ethiopia.',
+          summary:
+            'Tepi Agricultural Research Center marks a quarter century of service to Ethiopian agriculture.',
+          content:
+            'Founded in 2001, TARC has released 12 improved crop varieties and trained over 5,000 farmers in sustainable agricultural practices across Southwest Ethiopia.',
           category: 'INSTITUTIONAL',
           isPublished: true,
           isFeatured: true,
@@ -742,8 +832,10 @@ export async function seedDatabase() {
           authorId: userIds.superAdmin,
           title: 'Farmer Field School Enrollment Opens for 2026 Season',
           slug: 'farmer-field-school-enrollment-2026',
-          summary: 'Registration is now open for the 2026 Farmer Field School program targeting 200 smallholders.',
-          content: 'TARC invites smallholder farmers from Yeki and Sheka woredas to enroll in the 2026 Farmer Field School, covering improved spice and coffee production technologies.',
+          summary:
+            'Registration is now open for the 2026 Farmer Field School program targeting 200 smallholders.',
+          content:
+            'TARC invites smallholder farmers from Yeki and Sheka woredas to enroll in the 2026 Farmer Field School, covering improved spice and coffee production technologies.',
           category: 'FARMER_ADVISORY',
           isPublished: true,
           isFeatured: false,
@@ -761,7 +853,8 @@ export async function seedDatabase() {
           title: 'Annual Tepi Spice & Coffee Farmers Field Day 2026',
           slug: 'annual-tepi-spice-coffee-farmers-field-day-2026',
           eventType: 'FIELD_DAY',
-          description: 'Live demonstration of Korarima seedling transplanting and organic pest management for 400+ farmers.',
+          description:
+            'Live demonstration of Korarima seedling transplanting and organic pest management for 400+ farmers.',
           location: 'TARC Main Demonstration Farm, Tepi Station',
           startTime: new Date('2026-10-15 08:30:00'),
           endTime: new Date('2026-10-15 16:30:00'),
@@ -773,7 +866,8 @@ export async function seedDatabase() {
           title: 'Coffee Cup Quality Training Workshop',
           slug: 'coffee-cup-quality-training-workshop',
           eventType: 'TRAINING_SESSION',
-          description: 'Hands-on training for development agents on sensory evaluation and cupping protocols for Arabica coffee.',
+          description:
+            'Hands-on training for development agents on sensory evaluation and cupping protocols for Arabica coffee.',
           location: 'TARC Coffee Laboratory',
           startTime: new Date('2026-09-20 09:00:00'),
           endTime: new Date('2026-09-22 17:00:00'),
@@ -785,7 +879,8 @@ export async function seedDatabase() {
           title: 'National Spice Research Conference 2026',
           slug: 'national-spice-research-conference-2026',
           eventType: 'CONFERENCE',
-          description: 'Annual gathering of spice researchers from across Ethiopia to present findings and plan collaborative research.',
+          description:
+            'Annual gathering of spice researchers from across Ethiopia to present findings and plan collaborative research.',
           location: 'Addis Ababa, EIAR Conference Hall',
           startTime: new Date('2026-11-05 08:00:00'),
           endTime: new Date('2026-11-07 17:00:00'),
@@ -797,7 +892,8 @@ export async function seedDatabase() {
           title: 'Soil Health Workshop for Extension Agents',
           slug: 'soil-health-workshop-extension-agents',
           eventType: 'WORKSHOP',
-          description: 'Practical training on soil sampling techniques, organic composting, and nutrient management.',
+          description:
+            'Practical training on soil sampling techniques, organic composting, and nutrient management.',
           location: 'TARC Training Center',
           startTime: new Date('2026-08-10 09:00:00'),
           endTime: new Date('2026-08-11 16:00:00'),
@@ -809,7 +905,8 @@ export async function seedDatabase() {
           title: 'Ginger Production Seminar',
           slug: 'ginger-production-seminar',
           eventType: 'SEMINAR',
-          description: 'Seminar on improved ginger production technologies including variety selection and post-harvest handling.',
+          description:
+            'Seminar on improved ginger production technologies including variety selection and post-harvest handling.',
           location: 'TARC Auditorium',
           startTime: new Date('2026-07-15 14:00:00'),
           endTime: new Date('2026-07-15 17:00:00'),
@@ -821,7 +918,8 @@ export async function seedDatabase() {
           title: 'Post-Harvest Processing Training for Spice Farmers',
           slug: 'post-harvest-processing-training-spice',
           eventType: 'TRAINING_SESSION',
-          description: 'Hands-on training on solar drying, grading, and packaging of Korarima and turmeric.',
+          description:
+            'Hands-on training on solar drying, grading, and packaging of Korarima and turmeric.',
           location: 'TARC Post-Harvest Unit',
           startTime: new Date('2026-06-01 08:00:00'),
           endTime: new Date('2026-06-02 16:00:00'),
@@ -836,16 +934,96 @@ export async function seedDatabase() {
     await db
       .insert(galleryMedia)
       .values([
-        { id: 'g0000000-0000-0000-0000-000000000001', uploadedBy: userIds.superAdmin, title: 'Korarima Field Trial Plot', caption: 'Evaluating 8 Korarima clones at TARC experimental station', category: 'FIELD_TRIALS', imageUrl: '/images/gallery/korarima_trial.jpg', thumbnailUrl: '/images/gallery/thumbs/korarima_trial.jpg' },
-        { id: 'g0000000-0000-0000-0000-000000000002', uploadedBy: userIds.superAdmin, title: 'Coffee Cupping Laboratory', caption: 'Sensory evaluation of specialty Arabica samples', category: 'LABORATORY', imageUrl: '/images/gallery/coffee_cupping.jpg', thumbnailUrl: '/images/gallery/thumbs/coffee_cupping.jpg' },
-        { id: 'g0000000-0000-0000-0000-000000000003', uploadedBy: userIds.researcher1, title: 'Turmeric Variety Trial', caption: 'High oleoresin turmeric selections in bloom', category: 'SPICE_VARIETIES', imageUrl: '/images/gallery/turmeric_trial.jpg', thumbnailUrl: '/images/gallery/thumbs/turmeric_trial.jpg' },
-        { id: 'g0000000-0000-0000-0000-000000000004', uploadedBy: userIds.researcher2, title: 'Shaded Coffee Canopy', caption: 'Albizia gummifera shade canopy over coffee plants', category: 'COFFEE_RESEARCH', imageUrl: '/images/gallery/shade_canopy.jpg', thumbnailUrl: '/images/gallery/thumbs/shade_canopy.jpg' },
-        { id: 'g0000000-0000-0000-0000-000000000005', uploadedBy: userIds.admin, title: 'Farmer Training Session', caption: 'Extension agents learning improved pruning techniques', category: 'COMMUNITY_OUTREACH', imageUrl: '/images/gallery/farmer_training.jpg', thumbnailUrl: '/images/gallery/thumbs/farmer_training.jpg' },
-        { id: 'g0000000-0000-0000-0000-000000000006', uploadedBy: userIds.superAdmin, title: 'TARC Main Building', caption: 'Administrative and laboratory complex at Tepi station', category: 'FACILITIES', imageUrl: '/images/gallery/tarc_building.jpg', thumbnailUrl: '/images/gallery/thumbs/tarc_building.jpg' },
-        { id: 'g0000000-0000-0000-0000-000000000007', uploadedBy: userIds.researcher1, title: 'Black Pepper Harvest', caption: 'Mature black peppercorns ready for harvest', category: 'SPICE_VARIETIES', imageUrl: '/images/gallery/black_pepper.jpg', thumbnailUrl: '/images/gallery/thumbs/black_pepper.jpg' },
-        { id: 'g0000000-0000-0000-0000-000000000008', uploadedBy: userIds.researcher2, title: 'Coffee Cherry Processing', caption: 'Washed processing at TARC demonstration wet mill', category: 'COFFEE_RESEARCH', imageUrl: '/images/gallery/coffee_processing.jpg', thumbnailUrl: '/images/gallery/thumbs/coffee_processing.jpg' },
-        { id: 'g0000000-0000-0000-0000-000000000009', uploadedBy: userIds.superAdmin, title: 'Seedling Nursery', caption: 'Korarima seedlings ready for distribution to farmers', category: 'FIELD_TRIALS', imageUrl: '/images/gallery/seedling_nursery.jpg', thumbnailUrl: '/images/gallery/thumbs/seedling_nursery.jpg' },
-        { id: 'g0000000-0000-0000-0000-000000000010', uploadedBy: userIds.admin, title: 'Field Day Event', caption: 'Farmers参观 TARC demonstration plots', category: 'COMMUNITY_OUTREACH', imageUrl: '/images/gallery/field_day.jpg', thumbnailUrl: '/images/gallery/thumbs/field_day.jpg' },
+        {
+          id: 'g0000000-0000-0000-0000-000000000001',
+          uploadedBy: userIds.superAdmin,
+          title: 'Korarima Field Trial Plot',
+          caption: 'Evaluating 8 Korarima clones at TARC experimental station',
+          category: 'FIELD_TRIALS',
+          imageUrl: '/images/gallery/korarima_trial.jpg',
+          thumbnailUrl: '/images/gallery/thumbs/korarima_trial.jpg',
+        },
+        {
+          id: 'g0000000-0000-0000-0000-000000000002',
+          uploadedBy: userIds.superAdmin,
+          title: 'Coffee Cupping Laboratory',
+          caption: 'Sensory evaluation of specialty Arabica samples',
+          category: 'LABORATORY',
+          imageUrl: '/images/gallery/coffee_cupping.jpg',
+          thumbnailUrl: '/images/gallery/thumbs/coffee_cupping.jpg',
+        },
+        {
+          id: 'g0000000-0000-0000-0000-000000000003',
+          uploadedBy: userIds.researcher1,
+          title: 'Turmeric Variety Trial',
+          caption: 'High oleoresin turmeric selections in bloom',
+          category: 'SPICE_VARIETIES',
+          imageUrl: '/images/gallery/turmeric_trial.jpg',
+          thumbnailUrl: '/images/gallery/thumbs/turmeric_trial.jpg',
+        },
+        {
+          id: 'g0000000-0000-0000-0000-000000000004',
+          uploadedBy: userIds.researcher2,
+          title: 'Shaded Coffee Canopy',
+          caption: 'Albizia gummifera shade canopy over coffee plants',
+          category: 'COFFEE_RESEARCH',
+          imageUrl: '/images/gallery/shade_canopy.jpg',
+          thumbnailUrl: '/images/gallery/thumbs/shade_canopy.jpg',
+        },
+        {
+          id: 'g0000000-0000-0000-0000-000000000005',
+          uploadedBy: userIds.admin,
+          title: 'Farmer Training Session',
+          caption: 'Extension agents learning improved pruning techniques',
+          category: 'COMMUNITY_OUTREACH',
+          imageUrl: '/images/gallery/farmer_training.jpg',
+          thumbnailUrl: '/images/gallery/thumbs/farmer_training.jpg',
+        },
+        {
+          id: 'g0000000-0000-0000-0000-000000000006',
+          uploadedBy: userIds.superAdmin,
+          title: 'TARC Main Building',
+          caption: 'Administrative and laboratory complex at Tepi station',
+          category: 'FACILITIES',
+          imageUrl: '/images/gallery/tarc_building.jpg',
+          thumbnailUrl: '/images/gallery/thumbs/tarc_building.jpg',
+        },
+        {
+          id: 'g0000000-0000-0000-0000-000000000007',
+          uploadedBy: userIds.researcher1,
+          title: 'Black Pepper Harvest',
+          caption: 'Mature black peppercorns ready for harvest',
+          category: 'SPICE_VARIETIES',
+          imageUrl: '/images/gallery/black_pepper.jpg',
+          thumbnailUrl: '/images/gallery/thumbs/black_pepper.jpg',
+        },
+        {
+          id: 'g0000000-0000-0000-0000-000000000008',
+          uploadedBy: userIds.researcher2,
+          title: 'Coffee Cherry Processing',
+          caption: 'Washed processing at TARC demonstration wet mill',
+          category: 'COFFEE_RESEARCH',
+          imageUrl: '/images/gallery/coffee_processing.jpg',
+          thumbnailUrl: '/images/gallery/thumbs/coffee_processing.jpg',
+        },
+        {
+          id: 'g0000000-0000-0000-0000-000000000009',
+          uploadedBy: userIds.superAdmin,
+          title: 'Seedling Nursery',
+          caption: 'Korarima seedlings ready for distribution to farmers',
+          category: 'FIELD_TRIALS',
+          imageUrl: '/images/gallery/seedling_nursery.jpg',
+          thumbnailUrl: '/images/gallery/thumbs/seedling_nursery.jpg',
+        },
+        {
+          id: 'g0000000-0000-0000-0000-000000000010',
+          uploadedBy: userIds.admin,
+          title: 'Field Day Event',
+          caption: 'Farmers参观 TARC demonstration plots',
+          category: 'COMMUNITY_OUTREACH',
+          imageUrl: '/images/gallery/field_day.jpg',
+          thumbnailUrl: '/images/gallery/thumbs/field_day.jpg',
+        },
       ])
       .onDuplicateKeyUpdate({ set: { title: 'Korarima Field Trial Plot' } });
 
@@ -861,10 +1039,62 @@ export async function seedDatabase() {
     await db
       .insert(vehicles)
       .values([
-        { id: vehicleIds.v1, registrationPlate: '3-ET-14258', make: 'Toyota', model: 'Land Cruiser HZJ79 4WD', year: 2022, vehicleType: 'PICKUP_4WD', departmentId: deptIds.spice, assignedDriver: 'Mulugeta Assefa', status: 'AVAILABLE', fuelType: 'DIESEL', mileageKm: 48200, notes: 'Equipped with winch and heavy terrain tires for Sheka trial plots.' },
-        { id: vehicleIds.v2, registrationPlate: '3-ET-19874', make: 'Toyota', model: 'Hilux Double Cabin 4WD', year: 2023, vehicleType: 'PICKUP_4WD', departmentId: deptIds.coffee, assignedDriver: 'Dawit Mengistu', status: 'IN_USE', fuelType: 'DIESEL', mileageKm: 29150, notes: 'Assigned for coffee sample collection in Yeki woreda.' },
-        { id: vehicleIds.v3, registrationPlate: '3-ET-21034', make: 'Toyota', model: 'Land Cruiser Prado', year: 2021, vehicleType: 'SUV', departmentId: deptIds.extension, assignedDriver: 'Kassahun Alemayehu', status: 'AVAILABLE', fuelType: 'DIESEL', mileageKm: 62300, notes: 'Used for extension field visits and farmer training.' },
-        { id: vehicleIds.v4, registrationPlate: '3-ET-22567', make: 'Isuzu', model: 'NPR Dropside Truck', year: 2020, vehicleType: 'TRUCK', departmentId: deptIds.soil, assignedDriver: 'Yonas Bekele', status: 'UNDER_MAINTENANCE', fuelType: 'DIESEL', mileageKm: 85400, notes: 'Scheduled for brake pad replacement and oil service.' },
+        {
+          id: vehicleIds.v1,
+          registrationPlate: '3-ET-14258',
+          make: 'Toyota',
+          model: 'Land Cruiser HZJ79 4WD',
+          year: 2022,
+          vehicleType: 'PICKUP_4WD',
+          departmentId: deptIds.spice,
+          assignedDriver: 'Mulugeta Assefa',
+          status: 'AVAILABLE',
+          fuelType: 'DIESEL',
+          mileageKm: 48200,
+          notes: 'Equipped with winch and heavy terrain tires for Sheka trial plots.',
+        },
+        {
+          id: vehicleIds.v2,
+          registrationPlate: '3-ET-19874',
+          make: 'Toyota',
+          model: 'Hilux Double Cabin 4WD',
+          year: 2023,
+          vehicleType: 'PICKUP_4WD',
+          departmentId: deptIds.coffee,
+          assignedDriver: 'Dawit Mengistu',
+          status: 'IN_USE',
+          fuelType: 'DIESEL',
+          mileageKm: 29150,
+          notes: 'Assigned for coffee sample collection in Yeki woreda.',
+        },
+        {
+          id: vehicleIds.v3,
+          registrationPlate: '3-ET-21034',
+          make: 'Toyota',
+          model: 'Land Cruiser Prado',
+          year: 2021,
+          vehicleType: 'SUV',
+          departmentId: deptIds.extension,
+          assignedDriver: 'Kassahun Alemayehu',
+          status: 'AVAILABLE',
+          fuelType: 'DIESEL',
+          mileageKm: 62300,
+          notes: 'Used for extension field visits and farmer training.',
+        },
+        {
+          id: vehicleIds.v4,
+          registrationPlate: '3-ET-22567',
+          make: 'Isuzu',
+          model: 'NPR Dropside Truck',
+          year: 2020,
+          vehicleType: 'TRUCK',
+          departmentId: deptIds.soil,
+          assignedDriver: 'Yonas Bekele',
+          status: 'UNDER_MAINTENANCE',
+          fuelType: 'DIESEL',
+          mileageKm: 85400,
+          notes: 'Scheduled for brake pad replacement and oil service.',
+        },
       ])
       .onDuplicateKeyUpdate({ set: { status: 'AVAILABLE' } });
 
@@ -873,9 +1103,36 @@ export async function seedDatabase() {
     await db
       .insert(vehicleAssignments)
       .values([
-        { id: 'va000000-0000-0000-0000-000000000001', vehicleId: vehicleIds.v2, requestedById: userIds.researcher2, destination: 'Yeki Woreda, Key Afer Kebele', purpose: 'Collect coffee cherry samples for cup quality analysis', startTime: new Date('2026-08-20 07:00:00'), endTime: new Date('2026-08-20 18:00:00'), status: 'ACTIVE' },
-        { id: 'va000000-0000-0000-0000-000000000002', vehicleId: vehicleIds.v1, requestedById: userIds.researcher1, destination: 'Sheka Woreda, Masha Town', purpose: 'Transport Korarima seedlings to farmer cooperatives', startTime: new Date('2026-09-01 08:00:00'), endTime: new Date('2026-09-02 17:00:00'), status: 'PENDING' },
-        { id: 'va000000-0000-0000-0000-000000000003', vehicleId: vehicleIds.v3, requestedById: userIds.extensionLead, destination: 'Tepi Town, Farmers Training Center', purpose: 'Transport training materials for Farmer Field School', startTime: new Date('2026-08-25 09:00:00'), endTime: new Date('2026-08-25 16:00:00'), status: 'COMPLETED' },
+        {
+          id: 'va000000-0000-0000-0000-000000000001',
+          vehicleId: vehicleIds.v2,
+          requestedById: userIds.researcher2,
+          destination: 'Yeki Woreda, Key Afer Kebele',
+          purpose: 'Collect coffee cherry samples for cup quality analysis',
+          startTime: new Date('2026-08-20 07:00:00'),
+          endTime: new Date('2026-08-20 18:00:00'),
+          status: 'ACTIVE',
+        },
+        {
+          id: 'va000000-0000-0000-0000-000000000002',
+          vehicleId: vehicleIds.v1,
+          requestedById: userIds.researcher1,
+          destination: 'Sheka Woreda, Masha Town',
+          purpose: 'Transport Korarima seedlings to farmer cooperatives',
+          startTime: new Date('2026-09-01 08:00:00'),
+          endTime: new Date('2026-09-02 17:00:00'),
+          status: 'PENDING',
+        },
+        {
+          id: 'va000000-0000-0000-0000-000000000003',
+          vehicleId: vehicleIds.v3,
+          requestedById: userIds.staff1,
+          destination: 'Tepi Town, Farmers Training Center',
+          purpose: 'Transport training materials for Farmer Field School',
+          startTime: new Date('2026-08-25 09:00:00'),
+          endTime: new Date('2026-08-25 16:00:00'),
+          status: 'COMPLETED',
+        },
       ])
       .onDuplicateKeyUpdate({ set: { status: 'PENDING' } });
 
@@ -884,10 +1141,46 @@ export async function seedDatabase() {
     await db
       .insert(contactMessages)
       .values([
-        { id: 'cm000000-0000-0000-0000-000000000001', senderName: 'Kassahun Alemayehu', senderEmail: 'kassahun.agri@gmail.com', senderPhone: '+251 91 765 4321', subject: 'Request for Improved Korarima Seedlings', message: 'Our farmers cooperative in Anderacha Woreda is preparing 15 hectares for Korarima agroforestry. How can we place an order for certified nursery seedlings?', status: 'UNREAD' },
-        { id: 'cm000000-0000-0000-0000-000000000002', senderName: 'Sara Tesfaye', senderEmail: 'sara.tesfaye@mu.edu.et', senderPhone: '+251 92 345 6789', subject: 'Collaboration Request on Coffee Research', message: 'I am a PhD student at Jimma University researching coffee genetics. I would like to collaborate with TARC on collecting coffee leaf samples from Sheka forest.', status: 'READ' },
-        { id: 'cm000000-0000-0000-0000-000000000003', senderName: 'Tadesse Chemeda', senderEmail: 'tadesse.farm@yahoo.com', senderPhone: '+251 93 456 7890', subject: 'Inquiry About Turmeric Processing Training', message: 'I am a farmer in Yeki Woreda interested in learning turmeric post-harvest processing. When is the next training session?', status: 'IN_PROGRESS' },
-        { id: 'cm000000-0000-0000-0000-000000000004', senderName: 'Birhanu Kassa', senderEmail: 'birhanu.kassa@moa.gov.et', senderPhone: '+251 94 567 8901', subject: 'Policy Brief Request', message: 'Could TARC provide a policy brief on the spice sector for the upcoming Parliamentary committee session on agricultural exports?', status: 'UNREAD' },
+        {
+          id: 'cm000000-0000-0000-0000-000000000001',
+          senderName: 'Kassahun Alemayehu',
+          senderEmail: 'kassahun.agri@gmail.com',
+          senderPhone: '+251 91 765 4321',
+          subject: 'Request for Improved Korarima Seedlings',
+          message:
+            'Our farmers cooperative in Anderacha Woreda is preparing 15 hectares for Korarima agroforestry. How can we place an order for certified nursery seedlings?',
+          status: 'UNREAD',
+        },
+        {
+          id: 'cm000000-0000-0000-0000-000000000002',
+          senderName: 'Sara Tesfaye',
+          senderEmail: 'sara.tesfaye@mu.edu.et',
+          senderPhone: '+251 92 345 6789',
+          subject: 'Collaboration Request on Coffee Research',
+          message:
+            'I am a PhD student at Jimma University researching coffee genetics. I would like to collaborate with TARC on collecting coffee leaf samples from Sheka forest.',
+          status: 'READ',
+        },
+        {
+          id: 'cm000000-0000-0000-0000-000000000003',
+          senderName: 'Tadesse Chemeda',
+          senderEmail: 'tadesse.farm@yahoo.com',
+          senderPhone: '+251 93 456 7890',
+          subject: 'Inquiry About Turmeric Processing Training',
+          message:
+            'I am a farmer in Yeki Woreda interested in learning turmeric post-harvest processing. When is the next training session?',
+          status: 'IN_PROGRESS',
+        },
+        {
+          id: 'cm000000-0000-0000-0000-000000000004',
+          senderName: 'Birhanu Kassa',
+          senderEmail: 'birhanu.kassa@moa.gov.et',
+          senderPhone: '+251 94 567 8901',
+          subject: 'Policy Brief Request',
+          message:
+            'Could TARC provide a policy brief on the spice sector for the upcoming Parliamentary committee session on agricultural exports?',
+          status: 'UNREAD',
+        },
       ])
       .onDuplicateKeyUpdate({ set: { status: 'UNREAD' } });
 
